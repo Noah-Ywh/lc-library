@@ -22,13 +22,11 @@ $block: 'mentions';
   box-sizing: border-box;
   width: 100%;
   background-color: #fff;
-  border-width: 1px 1px 0;
-  border-style: solid;
-  border-color: var(--lc-border-color);
-  border-radius: var(--lc-border-radius) var(--lc-border-radius) 0 0;
+  border: var(--lc-border);
+  border-radius: var(--lc-border-radius);
   position: absolute;
   left: 0;
-  bottom: calc(100% - 2px);
+  bottom: calc(100% - 1px);
 
   ul {
     padding: 2px 6px 4px;
