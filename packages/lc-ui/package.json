@@ -1,6 +1,6 @@
 {
   "name": "@noahyu/lc-ui",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Low Code Library UI",
   "main": "dist/index.js",
   "module": "dist/index.js",
