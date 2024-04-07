@@ -1,0 +1,37 @@
+:root {
+  // 品牌色
+  --lc-primary: #06d5fe;
+  --lc-primary-light: #f0f4ff;
+  --lc-primary-dark: #266efe;
+
+  // 辅助色
+  --lc-secondary: #1fbf86;
+  --lc-secondary-light: #f3fffc;
+  --lc-secondary-dark: #05a86b;
+
+  // 强调色
+  --lc-strong: #fb5800;
+  --lc-strong-light: #fff8f1;
+  --lc-strong-dark: #ee5501;
+
+  // 交互色
+  --lc-success: #41cc8b;
+  --lc-warning: #f4934b;
+  --lc-error: #d94b3e;
+  --lc-info: #4f94e6;
+  --lc-success-bg: #edfdf8;
+  --lc-warning-bg: #fff8eb;
+  --lc-error-bg: #feefef;
+  --lc-info-bg: #f0f5ff;
+
+  // 中性色
+  --lc-white: #ffffff;
+  --lc-black: #000000;
+  --lc-gray: #333333;
+  --lc-gray-100: #666666;
+  --lc-gray-200: #999999;
+  --lc-gray-300: #dddddd;
+  --lc-gray-400: #eeeeee;
+  --lc-gray-500: #f5f5f5;
+  --lc-gray-600: #fafafa;
+}

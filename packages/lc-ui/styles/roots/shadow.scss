@@ -1,0 +1,8 @@
+:root {
+  --lc-shadow-color: #dddddd;
+  --lc-shadow-color-light: #eeeeee;
+  --lc-shadow-color-dark: #999999;
+  --lc-box-shadow: 0 0 4px 2px var(--lc-shadow-color);
+  --lc-box-shadow-light: 0 0 4px 2px var(--lc-shadow-color-light);
+  --lc-box-shadow-dark: 0 0 4px 2px var(--lc-shadow-color-dark);
+}

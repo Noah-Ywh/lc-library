@@ -1,0 +1,40 @@
+name: Docs CI
+
+on:
+  push:
+    branches: ['docs']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build the package
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run build
+        run: pnpm docs:build
+
+      - name: Deploy
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_001 }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER_001 }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST_001 }}
+          SOURCE: 'docs/.vitepress/dist'
+          TARGET: ${{ secrets.REMOTE_TARGET_001 }}
+          ARGS: '-rlgoDzvc -i --delete'

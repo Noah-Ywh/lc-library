@@ -1,0 +1,11 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config/schema.json",
+  "commit": false,
+  "access": "restricted",
+  "baseBranch": "main",
+  "ignore": ["lc-build", "lc-docs", "playground-nuxt", "playground-vue"],
+  "fixed": [],
+  "linked": [],
+  "updateInternalDependencies": "patch",
+  "changelog": false
+}
