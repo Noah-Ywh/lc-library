@@ -84,8 +84,21 @@ function getInnerHTML(): string {
   return containerEl.value?.innerHTML || ''
 }
 
+/** 设置内容
+ * @
+ * -------------------------- */
+function setInnerHTML(innerHTML: string) {
+  if (!containerEl.value) return
+
+  const html = innerHTML.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&')
+
+  containerEl.value.insertAdjacentHTML('beforeend', html)
+  focusMentions()
+}
+
 const timeout = ref<NodeJS.Timeout | null>(null)
-/** 通过 innerHtml 事件发送
+
+/** 输入事件
  * @
  * -------------------------- */
 function onInput() {
@@ -133,16 +146,12 @@ defineExpose({
   focusMentions,
   showMentions,
   getInnerHTML,
+  setInnerHTML,
 })
 </script>
 
 <template>
   <div ref="root" :class="bem()">
-    <p
-      ref="containerEl"
-      :class="bem('container')"
-      :style="{ height: props.height }"
-      @input="onInput"
-    ></p>
+    <p ref="containerEl" :class="bem('container')" :style="{ height }" @input="onInput"></p>
   </div>
 </template>

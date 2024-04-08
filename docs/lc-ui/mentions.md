@@ -77,8 +77,9 @@ function showMentions() {
 
 ### Expose
 
-| Expose        |     Type     |   Description    |
-| ------------- | :----------: | :--------------: |
-| focusMentions | `() => void` | 使输入框获得焦点 |
-| showMentions  | `() => void` | 编程方式打开菜单 |
-| getInnerHTML  | `() => void` |  获取 innerHtml  |
+| Expose        |             Type             |       Description        |
+| ------------- | :--------------------------: | :----------------------: |
+| focusMentions |         `() => void`         |     使输入框获得焦点     |
+| showMentions  |         `() => void`         |     编程方式打开菜单     |
+| getInnerHTML  |         `() => void`         |      获取 innerHtml      |
+| setInnerHTML  | `(innerHTML:string) => void` | 在末端插入内容 innerHtml |

@@ -34,9 +34,7 @@ export const mentionsProps = {
 }
 
 export const mentionsEmits = {
-  innerHtml: (value: string) => {
-    return value
-  },
+  innerHtml: (innerHtml: string) => innerHtml,
 }
 
 export const defaultOptions: TributeCollection<LMentionsValues> = {
