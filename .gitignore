@@ -26,6 +26,5 @@ pnpm-debug.log*
 *.sw?
 .nuxt
 
-# VuePress
-.temp
-.cache
+# vitePress
+cache
