@@ -1,6 +1,6 @@
 # Mentions
 
-> 一个可以 @刘某 的文本输入组件
+> 一个可以 @刘某 的编辑器
 
 ## 基础用法
 
@@ -69,7 +69,7 @@ function showMentions() {
 | Prop     |        Type        | Default | Required |         Description          |
 | -------- | :----------------: | :-----: | :------: | :--------------------------: |
 | options  | `LMentionsOptions` |         |  `true`  |           提及列表           |
-| height   |      `string`      |         | `false`  |          输入框高度          |
+| height   |      `string`      |         | `false`  |          编辑器高度          |
 | debounce |      `number`      |         |   `0`    | 防抖时间，如果不提供则不防抖 |
 
 ### Emits
@@ -80,9 +80,10 @@ function showMentions() {
 
 ### Expose
 
-| Expose        |             Type             |       Description        |
-| ------------- | :--------------------------: | :----------------------: |
-| focusMentions |         `() => void`         |     使输入框获得焦点     |
-| showMentions  |         `() => void`         |     编程方式打开菜单     |
-| getInnerHTML  |         `() => void`         |      获取 innerHtml      |
-| setInnerHTML  | `(innerHTML:string) => void` | 在末端插入内容 innerHtml |
+| Expose         |             Type             |       Description        |
+| -------------- | :--------------------------: | :----------------------: |
+| focusMentions  |         `() => void`         |     使编辑器获得焦点     |
+| showMentions   |         `() => void`         |     编程方式打开菜单     |
+| getInnerHTML   |         `() => void`         |      获取 innerHtml      |
+| setInnerHTML   | `(innerHTML:string) => void` | 在末端插入内容 innerHtml |
+| clearInnerHTML |         `() => void`         |        清空编辑器        |
