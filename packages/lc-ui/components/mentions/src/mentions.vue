@@ -96,6 +96,14 @@ function setInnerHTML(innerHTML: string) {
   focusMentions()
 }
 
+/** 清除内容
+ * @
+ * -------------------------- */
+function clearInnerHTML() {
+  if (!containerEl.value) return
+  containerEl.value.innerHTML = ''
+}
+
 const timeout = ref<NodeJS.Timeout | null>(null)
 
 /** 输入事件
@@ -147,6 +155,7 @@ defineExpose({
   showMentions,
   getInnerHTML,
   setInnerHTML,
+  clearInnerHTML,
 })
 </script>
 
