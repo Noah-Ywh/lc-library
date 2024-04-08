@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/Noah-Ywh/lc-library/compare/v1.1.0...v1.2.0) (2024-4-8)
+
+
+### ✨Features
+
+* **component:** `Mentions` 新增 `clearInnerHTML` 清空编辑器方法，通过 `defineExpose` 指定 ([483e82f](https://github.com/Noah-Ywh/lc-library/commit/483e82fa38156f88677b9a17def120483adfa753))
+
+
+
 # [1.1.0](https://github.com/Noah-Ywh/lc-library/compare/v1.0.0...v1.1.0) (2024-4-8)
 
 
