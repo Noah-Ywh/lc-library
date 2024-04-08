@@ -55,9 +55,12 @@ function showMentions() {
 
 <template>
   <LMentions ref="mentionsRef" :options="options" />
-  <button @click="showMentions">点击我</button>
+  <button @mousedown.prevent="showMentions">点击我</button>
 </template>
 ```
+
+> [!IMPORTANT]
+> 必须使用 `mousedown` 事件并阻止事件默认行为
 
 ## Mentions API
 
