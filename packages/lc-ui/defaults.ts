@@ -1,8 +1,9 @@
 import type { App, Plugin } from 'vue'
 
+import { HeaderMenuPlugin } from './components/header-menu'
 import { MentionsPlugin } from './components/mentions'
 
-const components = [MentionsPlugin]
+const components = [HeaderMenuPlugin, MentionsPlugin]
 
 const lcUi: Plugin = {
   install(app: App) {
