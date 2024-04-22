@@ -1,3 +1,12 @@
+# [1.3.0](https://github.com/Noah-Ywh/lc-library/compare/v1.2.0...v1.3.0) (2024-4-22)
+
+
+### ✨Features
+
+* 新增 `tryCatch` 用于简化 `try catch` 写法 ([86b987a](https://github.com/Noah-Ywh/lc-library/commit/86b987a4c39bd9a9c6ff8776d94ee4d30608e7a8))
+
+
+
 # [1.2.0](https://github.com/Noah-Ywh/lc-library/compare/v1.1.0...v1.2.0) (2024-4-8)
 
 

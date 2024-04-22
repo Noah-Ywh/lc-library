@@ -1,3 +1,17 @@
+# [1.3.0](https://github.com/Noah-Ywh/lc-library/compare/v1.2.0...v1.3.0) (2024-4-22)
+
+
+### ✨Features
+
+* **LHeaderMenu:** 新增头部菜单组件 ([fa4150f](https://github.com/Noah-Ywh/lc-library/commit/fa4150f6809ea480fcab84e6544e58de93a7c2d3))
+
+
+### 🐛Bug Fixes
+
+* **LMentions:** 异步加载 `tributejs` 模块以解决 window is not defined ([55d0780](https://github.com/Noah-Ywh/lc-library/commit/55d0780737eb0f53b9d63405f8f131a60d311d89))
+
+
+
 # [1.2.0](https://github.com/Noah-Ywh/lc-library/compare/v1.1.0...v1.2.0) (2024-4-8)
 
 
