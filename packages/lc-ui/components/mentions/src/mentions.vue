@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { ref, unref, onMounted, onBeforeUnmount, watch, nextTick } from 'vue'
 
-import Tribute from 'tributejs'
-
 import { mentionsProps, mentionsEmits, defaultOptions } from './mentions'
 import { useNamespace } from '@noahyu/lc-helpers'
 
 import type { Ref } from 'vue'
+import type Tribute from 'tributejs'
 import type { LMentionsOptions, LMentionsValues } from './mentions'
 
 export interface TributeElement extends HTMLElement {
@@ -27,17 +26,20 @@ const tribute = ref<Tribute<LMentionsValues>>()
  * @
  * -------------------------- */
 function attachTribute(tributeDom: Ref<TributeElement | undefined>, options: LMentionsOptions) {
-  if (!tributeDom.value) {
-    throw new Error('[lc-ui] 没有正确加载 DOM，这是我们的错误，请向我们反馈')
-  }
-
   defaultOptions.menuContainer = root.value
 
   const tributeOptions = { ...defaultOptions, ...unref(options) }
 
-  tribute.value = new Tribute(tributeOptions)
-  tribute.value.attach(tributeDom.value)
-  tributeDom.value.tributeInstance = tribute.value
+  import('tributejs')
+    .then((Tribute) => {
+      if (!tributeDom.value) throw new Error('[lc-ui] 加载 DOM 时发生错误')
+      tribute.value = new Tribute.default(tributeOptions)
+      tribute.value.attach(tributeDom.value)
+      tributeDom.value.tributeInstance = tribute.value
+    })
+    .catch(() => {
+      throw new Error('[lc-ui] 加载 tributejs 时发生错误')
+    })
 }
 
 /** 移除 Tribute
@@ -56,7 +58,7 @@ function detachTribute(tributeDom: Ref<TributeElement | undefined>) {
  * -------------------------- */
 function focusMentions() {
   if (!containerEl.value) {
-    throw new Error('[lc-ui] 没有正确加载 DOM，这是我们的错误，请向我们反馈')
+    throw new Error('[lc-ui] 加载 DOM 时发生错误')
   }
 
   const range = document.createRange()
@@ -72,7 +74,7 @@ function focusMentions() {
  * -------------------------- */
 function showMentions() {
   if (!containerEl.value) {
-    throw new Error('[lc-ui] 没有正确加载 DOM，这是我们的错误，请向我们反馈')
+    throw new Error('[lc-ui] 加载 DOM 时发生错误')
   }
   tribute.value?.showMenuForCollection(containerEl.value)
 }
