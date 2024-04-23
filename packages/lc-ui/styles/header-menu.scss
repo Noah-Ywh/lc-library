@@ -69,7 +69,7 @@ $block: 'header-menu';
     position: relative;
     z-index: 1;
 
-    a {
+    .lc-a {
       display: inline-block;
       font-weight: 600;
       color: var(--lc-font-color);

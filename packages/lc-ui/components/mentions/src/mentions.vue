@@ -163,6 +163,11 @@ defineExpose({
 
 <template>
   <div ref="root" :class="bem()">
-    <p ref="containerEl" :class="bem('container')" :style="{ height }" @input="onInput"></p>
+    <p
+      ref="containerEl"
+      :class="['lc-p', bem('container')]"
+      :style="{ height }"
+      @input="onInput"
+    ></p>
   </div>
 </template>

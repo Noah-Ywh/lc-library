@@ -107,14 +107,14 @@ function hideLocker() {
     <!-- 菜单 start -->
     <nav :class="bem('nav')" @mouseleave="leaveNav()">
       <!-- 菜单列表 -->
-      <ul class="menu-list">
+      <ul class="lc-ui menu-list">
         <li
           v-for="(item, index) in navs"
           :key="item.value"
-          class="menu-item"
+          class="lc-li menu-item"
           @mouseenter="changeActiveMenu($event, index)"
         >
-          <router-link v-if="item.linkTo" key="link" :to="item.linkTo">
+          <router-link v-if="item.linkTo" key="link" class="lc-a" :to="item.linkTo">
             {{ item.value }}
           </router-link>
           <span v-else key="value">{{ item.value }}</span>

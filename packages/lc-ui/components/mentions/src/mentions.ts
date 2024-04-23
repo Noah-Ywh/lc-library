@@ -58,7 +58,7 @@ export const defaultOptions: TributeCollection<LMentionsValues> = {
       return (
         '&nbsp' +
         '<span class="lc-mentions__content" contenteditable="false">' +
-        `<a href="${item.original.link}" class="is-label is-link" target="__blank">@` +
+        `<a href="${item.original.link}" class="lc-a is-label is-link" target="__blank">@` +
         item.original.label +
         '</a>' +
         '<i class="is-value" style="display:none">' +
