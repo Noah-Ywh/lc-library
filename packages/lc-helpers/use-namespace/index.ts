@@ -14,9 +14,9 @@ type CreateBEM<B extends string, E extends string, M extends string> = E extends
 
 type CreateIS<Arr extends unknown[]> = Arr extends [infer First, ...infer Rest]
   ? First extends Record<string, true>
-    ? [`${StatePrefix}--${Extract<keyof First, string | number>}`, ...CreateIS<Rest>]
+    ? [`${StatePrefix}-${Extract<keyof First, string | number>}`, ...CreateIS<Rest>]
     : First extends string
-      ? [`${StatePrefix}--${First}`, ...CreateIS<Rest>]
+      ? [`${StatePrefix}-${First}`, ...CreateIS<Rest>]
       : [...CreateIS<Rest>]
   : Arr
 
@@ -27,11 +27,10 @@ type CreateIS<Arr extends unknown[]> = Arr extends [infer First, ...infer Rest]
  * bem() // 'lc-example'
  * bem('alert') // 'lc-example__alert'
  * bem('alert', 'primary') // 'lc-example__alert--primary'
- * bem('alert__button', 'primary') // 'lc-example__alert__button--primary'
  *
- * is({primary:true}) // ['is--primary']
- * is('warning') // ['is--warning']
- * is({primary:true}, 'warning') // ['is--primary', 'is--warning']
+ * is({primary:true}) // ['is-primary']
+ * is('warning') // ['is-warning']
+ * is({primary:true}, 'warning') // ['is-primary', 'is-warning']
  * -------------------------- */
 export const useNamespace = <B extends string>(b: B) => {
   function bem<E extends string = '', M extends string = ''>(e?: E, m?: M): CreateBEM<B, E, M>
@@ -58,11 +57,11 @@ export const useNamespace = <B extends string>(b: B) => {
             if (!val) {
               return ''
             }
-            return `${statePrefix}--${key}`
+            return `${statePrefix}-${key}`
           }),
         )
       } else {
-        map.push(`${statePrefix}--${item}`)
+        map.push(`${statePrefix}-${item}`)
       }
     })
     return map

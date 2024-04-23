@@ -2,7 +2,6 @@
 
 $block: '';
 
-// create BEM
 @mixin b() {
   $class: $namespace + $common-separator + $block;
 
@@ -29,5 +28,23 @@ $block: '';
 
   .#{$class} {
     @content;
+  }
+}
+
+@mixin is($state) {
+  $class: #{$state-prefix}#{$state};
+
+  .#{$class} {
+    @content;
+  }
+}
+
+@mixin setCssVar($name, $val) {
+  --#{$namespace}-#{$name}: #{$val};
+}
+
+@mixin setCssVars($vars) {
+  @each $key, $value in $vars {
+    --#{$namespace}-#{$key}: #{$value};
   }
 }

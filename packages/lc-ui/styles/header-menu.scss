@@ -3,40 +3,46 @@
 $block: 'header-menu';
 
 @include b() {
-  --lc-width: 100%;
-  --lc-height: 58px;
-  --lc-font-color: var(--lc-text);
-  --lc-background-color: transparent;
-  --lc-font-color-hover: var(--lc-text);
-  --lc-background-color-hover: #fff;
-
-  --lc-nav-item-width: auto;
-  --lc-nav-item-height: auto;
-  --lc-nav-after-visibility: hidden;
-  --lc-nav-after-opacity: 0;
-  --lc-nav-after-left: none;
-  --lc-nav-after-transition: opacity 0.25s;
-  --lc-nav-after-background-color: rgba(180, 180, 180, 0.5);
-  --lc-nav-after-background-radius: 4px;
-
-  --lc-nav-locker-padding: 20px;
-  --lc-nav-locker-background-color: #fff;
-  --lc-nav-locker-pointer-events: none;
+  @include setCssVars(
+    (
+      'width': 100%,
+      'height': 58px,
+      'font-color': getCssVar('text'),
+      'background-color': transparent,
+      'font-color-hover': getCssVar('text'),
+      'background-color-hover': #fff,
+      'nav-item-width': auto,
+      'nav-item-height': auto,
+      'nav-after-visibility': hidden,
+      'nav-after-opacity': 0,
+      'nav-after-left': none,
+      'nav-after-transition': opacity 0.25s,
+      'nav-after-background-color': rgba(180, 180, 180, 0.5),
+      'nav-after-background-radius': 4px,
+      'nav-locker-padding': 20px,
+      'nav-locker-background-color': #fff,
+      'nav-locker-pointer-events': none,
+    )
+  );
 
   display: flex;
   align-items: stretch;
   justify-content: space-between;
   box-sizing: border-box;
-  width: var(--lc-width);
-  height: var(--lc-height);
-  color: var(--lc-font-color);
-  background-color: var(--lc-background-color);
+  width: getCssVar('width');
+  height: getCssVar('height');
+  color: getCssVar('font-color');
+  background-color: getCssVar('background-color');
   transition: background 0.4s;
   position: relative;
 
   &:hover {
-    --lc-font-color: var(--lc-font-color-hover) !important;
-    --lc-background-color: var(--lc-background-color-hover) !important;
+    @include setCssVars(
+      (
+        'font-color': getCssVar('font-color-hover') + '!important',
+        'background-color': getCssVar('background-color-hover') + '!important',
+      )
+    );
   }
 }
 
@@ -53,16 +59,16 @@ $block: 'header-menu';
 
     &::after {
       content: '';
-      visibility: var(--lc-nav-after-visibility);
-      opacity: var(--lc-nav-after-opacity);
-      width: var(--lc-nav-item-width);
-      height: var(--lc-nav-item-height);
-      background-color: var(--lc-nav-after-background-color);
-      border-radius: var(--lc-nav-after-background-radius);
+      visibility: getCssVar('nav-after-visibility');
+      opacity: getCssVar('nav-after-opacity');
+      width: getCssVar('nav-item-width');
+      height: getCssVar('nav-item-height');
+      background-color: getCssVar('nav-after-background-color');
+      border-radius: getCssVar('nav-after-background-radius');
       position: absolute;
-      top: calc((var(--lc-height) - var(--lc-nav-item-height)) / 2);
-      left: var(--lc-nav-after-left);
-      transition: var(--lc-nav-after-transition);
+      top: calc((getCssVar('height') - getCssVar('nav-item-height')) / 2);
+      left: getCssVar('nav-after-left');
+      transition: getCssVar('nav-after-transition');
     }
   }
   .menu-item {
@@ -72,7 +78,7 @@ $block: 'header-menu';
     .lc-a {
       display: inline-block;
       font-weight: 600;
-      color: var(--lc-font-color);
+      color: getCssVar('font-color');
       text-decoration: none;
       padding: 4px 25px;
       cursor: pointer;
@@ -80,7 +86,7 @@ $block: 'header-menu';
     span {
       display: inline-block;
       font-weight: 600;
-      color: var(--lc-font-color);
+      color: getCssVar('font-color');
       padding: 4px 25px;
       cursor: pointer;
     }
@@ -90,8 +96,8 @@ $block: 'header-menu';
     box-sizing: border-box;
     width: 100%;
     max-height: 75vh;
-    padding: var(--lc-nav-locker-padding);
-    background-color: var(--lc-nav-locker-background-color);
+    padding: getCssVar('nav-locker-padding');
+    background-color: getCssVar('nav-locker-background-color');
     box-shadow: 0 8px 16px -16px rgba(0, 0, 0, 0.16);
     opacity: 0;
     transform: scaleY(0);
@@ -102,9 +108,9 @@ $block: 'header-menu';
       transform 0.1s cubic-bezier(0.5, 0, 0, 0.75) 1.5s;
     position: absolute;
     left: 0;
-    top: var(--lc-height);
+    top: getCssVar('height');
     z-index: auto;
-    pointer-events: var(--lc-nav-locker-pointer-events);
+    pointer-events: getCssVar('nav-locker-pointer-events');
 
     &.menu-locker-content-first--animation {
       transition:

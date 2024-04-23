@@ -1,10 +1,12 @@
+@use './mixins' as *;
+
 .lc-html {
-  font: normal normal var(--lc-font-weight) var(--lc-font-size) / var(--lc-line-height)
-    var(--lc-font-sans-serif);
+  font: normal normal getCssVar('font-weight') getCssVar('font-size') / getCssVar('line-height')
+    getCssVar('font-sans-serif');
 }
 
 .lc-body {
-  color: var(--lc-text);
+  color: getCssVar('text');
   margin: 0;
   padding: 0;
   position: relative;
@@ -35,61 +37,61 @@
 
 .lc-input::-webkit-input-placeholder,
 .lc-textarea::-webkit-input-placeholder {
-  color: var(--lc-text-200);
+  color: getCssVar('text-200');
 }
 .lc-input:-moz-placeholder,
 .lc-textarea:-moz-placeholder {
-  color: var(--lc-text-200);
+  color: getCssVar('text-200');
 }
 .lc-input::-moz-placeholder,
 .lc-textarea::-moz-placeholder {
-  color: var(--lc-text-200);
+  color: getCssVar('text-200');
 }
 .lc-input:-ms-input-placeholder,
 .lc-textarea:-ms-input-placeholder {
-  color: var(--lc-text-200);
+  color: getCssVar('text-200');
 }
 
 .lc-h1 {
   font-size: 38px;
   line-height: 44px;
-  color: var(--lc-text);
+  color: getCssVar('text');
   margin: 0;
 }
 .lc-h2 {
   font-size: 30px;
   line-height: 42px;
-  color: var(--lc-text);
+  color: getCssVar('text');
   margin: 0;
 }
 .lc-h3 {
   font-size: 24px;
   line-height: 28px;
-  color: var(--lc-text);
+  color: getCssVar('text');
   margin: 0;
 }
 .lc-h4 {
   font-size: 20px;
   line-height: 28px;
-  color: var(--lc-text);
+  color: getCssVar('text');
   margin: 0;
 }
 .lc-h5 {
   font-size: 18px;
   line-height: 24px;
-  color: var(--lc-text);
+  color: getCssVar('text');
   margin: 0;
 }
 .lc-h6 {
   font-size: 14px;
   line-height: 22px;
-  color: var(--lc-text);
+  color: getCssVar('text');
   margin: 0;
 }
 .lc-p {
   font-size: 14px;
   line-height: 20px;
-  color: var(--lc-text-100);
+  color: getCssVar('text-100');
   margin: 0;
 }
 .lc-a {

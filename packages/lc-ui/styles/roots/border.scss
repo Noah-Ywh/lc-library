@@ -1,9 +1,15 @@
+@use '../mixins' as *;
+
 :root {
-  --lc-border-color: #dddddd;
-  --lc-border-color-light: #eeeeee;
-  --lc-border-color-dark: #999999;
-  --lc-border: 1px solid var(--lc-border-color);
-  --lc-border-light: 1px solid var(--lc-border-color-light);
-  --lc-border-dark: 1px solid var(--lc-border-color-dark);
-  --lc-border-radius: 4px;
+  @include setCssVars(
+    (
+      'border-color': #dddddd,
+      'border-color-light': #eeeeee,
+      'border-color-dark': #999999,
+      'border': 1px solid getCssVar('border-color'),
+      'border-light': 1px solid getCssVar('border-color-light'),
+      'border-dark': 1px solid getCssVar('border-color-dark'),
+      'border-radius': 4px,
+    )
+  );
 }
