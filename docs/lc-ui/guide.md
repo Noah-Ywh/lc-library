@@ -61,119 +61,98 @@ app.mount('#app')
 
 ## 样式处理
 
-LC UI 其实带有少量的 Normalize 样式，但是考虑到合适的才是最好的，为了减少冲突，还是通过主动添加 class 来使用
+LC UI 其实带有少量的 Normalize 样式，但是考虑到合适的才是最好的，为了减少冲突，不会默认导入内置的 Normalize 样式
 
-如果没有使用自己的 Normalize 样式，而是统一采用 LC UI 的样式，请在 `html` 和 `body` 标签分别添加 `lc-html` `lc-body` 类
+如果要使用 LC UI 自带的 Normalize 样式，可以导入 `@noahyu/lc-ui/dist/styles/lc-normalize.css`
 
-```scss
-.lc-html {
+```css
+html {
   font: normal normal var(--lc-font-weight) var(--lc-font-size) / var(--lc-line-height) var(--lc-font-sans-serif);
 }
-
-.lc-body {
+body {
   color: var(--lc-text);
   margin: 0;
   padding: 0;
   position: relative;
 }
-
-.lc-ol,
-.lc-ul {
+ol,
+ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
-.lc-button,
-.lc-input[type='submit'],
-.lc-input[type='button'] {
+button,
+input[type='button'],
+input[type='submit'] {
   cursor: pointer;
 }
-
-.lc-input::-moz-focus-inner {
+input::-moz-focus-inner {
   padding: 0;
   border: 0;
 }
-
-.lc-input[type='number']::-webkit-inner-spin-button,
-.lc-input[type='number']::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   margin: 0;
 }
-
-.lc-input::-webkit-input-placeholder,
-.lc-textarea::-webkit-input-placeholder {
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
   color: var(--lc-text-200);
 }
-.lc-input:-moz-placeholder,
-.lc-textarea:-moz-placeholder {
+input:-moz-placeholder,
+textarea:-moz-placeholder {
   color: var(--lc-text-200);
 }
-.lc-input::-moz-placeholder,
-.lc-textarea::-moz-placeholder {
+input::-moz-placeholder,
+textarea::-moz-placeholder {
   color: var(--lc-text-200);
 }
-.lc-input:-ms-input-placeholder,
-.lc-textarea:-ms-input-placeholder {
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
   color: var(--lc-text-200);
 }
-
-.lc-h1 {
+h1 {
   font-size: 38px;
   line-height: 44px;
   color: var(--lc-text);
   margin: 0;
 }
-.lc-h2 {
+h2 {
   font-size: 30px;
   line-height: 42px;
   color: var(--lc-text);
   margin: 0;
 }
-.lc-h3 {
+h3 {
   font-size: 24px;
   line-height: 28px;
   color: var(--lc-text);
   margin: 0;
 }
-.lc-h4 {
+h4 {
   font-size: 20px;
   line-height: 28px;
   color: var(--lc-text);
   margin: 0;
 }
-.lc-h5 {
+h5 {
   font-size: 18px;
   line-height: 24px;
   color: var(--lc-text);
   margin: 0;
 }
-.lc-h6 {
+h6 {
   font-size: 14px;
   line-height: 22px;
   color: var(--lc-text);
   margin: 0;
 }
-.lc-p {
+p {
   font-size: 14px;
   line-height: 20px;
   color: var(--lc-text-100);
   margin: 0;
 }
-.lc-a {
+a {
   text-decoration: none;
-}
-```
-
-## Volar 支持
-
-在 tsconfig.json 中通过 `compilerOptions.type` 指定全局组件类型即可得到 Volar 支持。
-
-```json
-// tsconfig.json
-{
-  "compilerOptions": {
-    // ...
-    "types": ["@noahyu/lc-ui/global"]
-  }
 }
 ```
