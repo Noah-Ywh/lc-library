@@ -107,7 +107,7 @@ function hideLocker() {
     <!-- 菜单 start -->
     <nav :class="bem('nav')" @mouseleave="leaveNav()">
       <!-- 菜单列表 -->
-      <ul class="lc-ui menu-list">
+      <ul class="lc-ul menu-list">
         <li
           v-for="(item, index) in navs"
           :key="item.value"
