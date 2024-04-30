@@ -1,3 +1,22 @@
+# [1.4.0](https://github.com/Noah-Ywh/lc-library/compare/v1.3.1...v1.4.0) (2024-4-30)
+
+
+### ✨Features
+
+* **useObserveSizeChange:** 新增 `useObserveSizeChange` 函数，监听一个元素的布局属性变化并调用回调 ([dafd735](https://github.com/Noah-Ywh/lc-library/commit/dafd735843b42da2d5c392267b9c0c50c7204a10))
+
+
+### 🐛Bug Fixes
+
+* **lc-helpers:** 修复部分函数未导出 ([4c270fe](https://github.com/Noah-Ywh/lc-library/commit/4c270fee9bf99d2c8646e2eb3aaba8e37b75982d))
+
+
+### 🔨Code Refactoring
+
+* **useTryCatch:** `tryCatch` 重命名为 `useTryCatch` ([58e4825](https://github.com/Noah-Ywh/lc-library/commit/58e4825a1b586a06498c6b2bed5a519602c21ca4))
+
+
+
 ## [1.3.1](https://github.com/Noah-Ywh/lc-library/compare/v1.3.0...v1.3.1) (2024-4-23)
 
 

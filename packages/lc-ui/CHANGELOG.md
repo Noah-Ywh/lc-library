@@ -1,3 +1,17 @@
+# [1.4.0](https://github.com/Noah-Ywh/lc-library/compare/v1.3.1...v1.4.0) (2024-4-30)
+
+
+### ✨Features
+
+* **style:** 允许用户自行选择是否使用内置的 Normalize 样式 ([98d5387](https://github.com/Noah-Ywh/lc-library/commit/98d5387e63a22871273ee5238264ae872fbcf94b))
+
+
+### 🐛Bug Fixes
+
+* **LHeaderMenu:** 修复菜单列表元素类名称错误 ([ec42def](https://github.com/Noah-Ywh/lc-library/commit/ec42deff78992f65a70411c5c44dfc3d99312e8a))
+
+
+
 ## [1.3.1](https://github.com/Noah-Ywh/lc-library/compare/v1.3.0...v1.3.1) (2024-4-23)
 
 
