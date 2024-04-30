@@ -98,7 +98,6 @@ const createSTYLE = async () => {
   const css = await formatCode(
     `
     import '@noahyu/lc-ui/dist/styles/lc-root.css'
-    import '@noahyu/lc-ui/dist/styles/lc-normalize.css'
     import '@noahyu/lc-ui/dist/styles/lc-${name}.css'`,
     'typescript',
   )
@@ -106,7 +105,6 @@ const createSTYLE = async () => {
   const index = await formatCode(
     `
     import '@noahyu/lc-ui/dist/styles/scss/root.scss'
-    import '@noahyu/lc-ui/dist/styles/scss/normalize.scss'
     import '@noahyu/lc-ui/dist/styles/scss/${name}.scss'`,
     'typescript',
   )
