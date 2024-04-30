@@ -4,8 +4,8 @@ import { navbar, sidebar } from './bars'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: 'Low Code Library',
-  description: 'lc 组件库',
+  title: 'LC Library',
+  description: '基于 VUE3 的库',
   cleanUrls: true,
   themeConfig: {
     nav: navbar,

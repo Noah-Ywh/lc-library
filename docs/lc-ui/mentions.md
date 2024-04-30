@@ -1,3 +1,25 @@
+<script setup>
+import { ref } from 'vue'
+import { LMentions } from '@noahyu/lc-ui'
+
+const options = ref({
+  values: [
+    {
+      label: 'noah',
+      value: '1',
+      link: 'https://github.com/Noah-Ywh/lc-library',
+      avatar: 'https://lc.ytarc.com/logo.jpg',
+    },
+    { label: '刘某', value: '2' },
+  ],
+})
+const mentionsRef = ref(null)
+
+function showMentions() {
+  mentionsRef.value?.showMentions()
+}
+</script>
+
 # Mentions
 
 > 一个可以 @刘某 的编辑器
@@ -15,7 +37,7 @@ const options = ref<LMentionsOptions>({
       label: 'noah',
       value: '1',
       link: 'https://github.com/Noah-Ywh/lc-library',
-      avatar: 'https://lc.ytarc.com/docs/logo.png',
+      avatar: 'https://lc.ytarc.com/logo.jpg',
     },
     { label: '刘某', value: '2' },
   ],
@@ -26,6 +48,10 @@ const options = ref<LMentionsOptions>({
   <LMentions :options="options" />
 </template>
 ```
+
+<Preview>
+ <LMentions :options="options" />
+</Preview>
 
 ## 编程方式触发
 
@@ -40,7 +66,7 @@ const options = ref<LMentionsOptions>({
       label: 'noah',
       value: '1',
       link: 'https://github.com/Noah-Ywh/lc-library',
-      avatar: 'https://lc.ytarc.com/docs/logo.png',
+      avatar: 'https://lc.ytarc.com/logo.jpg',
     },
     { label: '刘某', value: '2' },
   ],
@@ -49,7 +75,7 @@ const options = ref<LMentionsOptions>({
 const mentionsRef = ref<InstanceType<typeof LMentions>>()
 
 function showMentions() {
-  mentions.value?.showMentions()
+  mentionsRef.value?.showMentions()
 }
 </script>
 
@@ -61,6 +87,11 @@ function showMentions() {
 
 > [!IMPORTANT]
 > 必须使用 `mousedown` 事件并阻止事件默认行为
+
+<Preview>
+  <LMentions ref="mentionsRef" :options="options" />
+  <button @mousedown.prevent="showMentions">点击我</button>
+</Preview>
 
 ## Mentions API
 

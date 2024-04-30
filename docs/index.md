@@ -3,15 +3,15 @@
 layout: home
 
 hero:
-  name: 'Low Code Library'
+  name: 'LC Library'
   text: '基于 VUE3 的库'
-  tagline: 为实现快速开发而开发，结果还是开发
+  tagline: 收集日常开发中常用的模块
   actions:
     - theme: brand
-      text: 组件库
+      text: 组件
       link: /lc-ui/guide
     - theme: alt
-      text: 函数库
+      text: 函数
       link: /lc-helpers/guide
 
 features:
