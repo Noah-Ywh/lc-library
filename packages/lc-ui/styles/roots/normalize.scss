@@ -1,4 +1,4 @@
-@use './mixins' as *;
+@use '../mixins' as *;
 
 .lc-html {
   font: normal normal getCssVar('font-weight') getCssVar('font-size') / getCssVar('line-height')
