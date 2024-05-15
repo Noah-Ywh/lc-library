@@ -1,4 +1,6 @@
-export * from './use-canvas'
+export * from './use-date'
+export * from './use-dom-size-unit'
 export * from './use-namespace'
 export * from './use-observe-size-change'
 export * from './use-try-catch'
+export * from './use-validate'
