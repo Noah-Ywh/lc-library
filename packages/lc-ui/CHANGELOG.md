@@ -1,3 +1,17 @@
+# [1.5.0](https://github.com/Noah-Ywh/lc-library/compare/v1.4.0...v1.5.0) (2024-5-15)
+
+
+### ✨Features
+
+* **lc-ui:** `LMentions` 可自定义未找到匹配时的提示文案 ([8a5ea95](https://github.com/Noah-Ywh/lc-library/commit/8a5ea95ef3b07060435606e5703b932687692914))
+
+
+### 🐛Bug Fixes
+
+* **lc-ui:** 修复样式引用错误 ([6034841](https://github.com/Noah-Ywh/lc-library/commit/6034841c793c28bd5c60a304c32191dcf38f6f9b))
+
+
+
 # [1.4.0](https://github.com/Noah-Ywh/lc-library/compare/v1.3.1...v1.4.0) (2024-4-30)
 
 

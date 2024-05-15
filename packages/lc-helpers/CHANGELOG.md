@@ -1,3 +1,17 @@
+# [1.5.0](https://github.com/Noah-Ywh/lc-library/compare/v1.4.0...v1.5.0) (2024-5-15)
+
+
+### ✨Features
+
+* **lc-helpers:** 新增多个通用函数 ([c2d1c95](https://github.com/Noah-Ywh/lc-library/commit/c2d1c952e3bb8488f4decd2975a4fcde08cb9af8))
+
+
+### ⚡Performance Improvements
+
+* **lc-helpers:** 删除无用函数 ([4a8774c](https://github.com/Noah-Ywh/lc-library/commit/4a8774c3dfcd9bbb2eacb32de41e35cac94f9b64))
+
+
+
 # [1.4.0](https://github.com/Noah-Ywh/lc-library/compare/v1.3.1...v1.4.0) (2024-4-30)
 
 
