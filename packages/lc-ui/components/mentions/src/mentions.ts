@@ -31,6 +31,10 @@ export const mentionsProps = {
     typs: Number,
     default: 0,
   },
+  noMatchTip: {
+    type: String,
+    default: '未找到匹配数据',
+  },
 }
 
 export const mentionsEmits = {
@@ -94,7 +98,7 @@ export const defaultOptions: TributeCollection<LMentionsValues> = {
   fillAttr: 'label',
   /** 指定菜单插入的位置 */
   menuContainer: undefined,
-  /** 未找到匹配项时显示一下内容 */
+  /** 未找到匹配项时显示以下内容 */
   noMatchTemplate: undefined,
   /** 触发前是否需要空格 */
   requireLeadingSpace: false,

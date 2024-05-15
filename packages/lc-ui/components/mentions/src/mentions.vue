@@ -28,7 +28,11 @@ const tribute = ref<Tribute<LMentionsValues>>()
 function attachTribute(tributeDom: Ref<TributeElement | undefined>, options: LMentionsOptions) {
   defaultOptions.menuContainer = root.value
 
-  const tributeOptions = { ...defaultOptions, ...unref(options) }
+  const tributeOptions = {
+    ...defaultOptions,
+    ...unref(options),
+    noMatchTemplate: () => props.noMatchTip,
+  }
 
   import('tributejs')
     .then((Tribute) => {
