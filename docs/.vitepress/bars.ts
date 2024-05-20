@@ -27,5 +27,15 @@ export const sidebar: DefaultTheme.Sidebar = {
       text: '函数',
       link: 'guide',
     },
+    {
+      base: '/lc-helpers/',
+      text: '函数列表',
+      items: [
+        { text: '日期相关', link: 'use-date' },
+        { text: 'DOM 相关', link: 'use-dom' },
+        { text: 'tryCatch', link: 'use-try-catch' },
+        { text: '字符校验', link: 'use-validate' },
+      ],
+    },
   ],
 }

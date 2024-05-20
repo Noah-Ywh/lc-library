@@ -16,7 +16,7 @@ hero:
 
 features:
   - title: 组件
-    details: 基于 VUE3 的通用组件
+    details: 基于 VUE3 的组件
   - title: 函数
-    details: 常用或不常用的一些函数
+    details: 一些函数
 ---
