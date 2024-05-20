@@ -23,12 +23,13 @@
     "access": "public"
   },
   "devDependencies": {
+    "@noahyu/lc-helpers": "workspace:*",
     "@noahyu/lc-ui": "workspace:*",
-    "@vue/repl": "^4.1.1",
-    "chart.js": "^4.4.2",
-    "vue": "^3.4.21"
+    "@vue/repl": "^4.1.2",
+    "chart.js": "^4.4.3",
+    "vue": "^3.4.27"
   },
   "dependencies": {
-    "vitepress": "^1.0.2"
+    "vitepress": "^1.2.0"
   }
 }
