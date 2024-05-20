@@ -35,7 +35,7 @@ export function useDateGetNowYMD(): Required<FormattedDate> {
  * @param { string } date `'YYYY-MM' | 'YYYY-MM-DD'`
  * @param { number } offset 偏移量
  */
-export function useDateGetOffsetDate(date: string, offset: number): FormattedDate | undefined {
+export function useDateGetOffsetDate(date: string, offset: number): FormattedDate {
   const formatYYYMM = /^\d{4}-\d{2}$/
   const formatYYYMMDD = /^\d{4}-\d{2}-\d{2}$/
 
@@ -53,7 +53,7 @@ export function useDateGetOffsetDate(date: string, offset: number): FormattedDat
       month,
       monthLabel,
       yearMonth: `${year}-${monthLabel}`,
-      date: `${year}-${month}`,
+      date: `${year}-${monthLabel}`,
     }
   } else if (formatYYYMMDD.test(date)) {
     assignDate.setDate(assignDate.getDate() + offset)
@@ -70,10 +70,16 @@ export function useDateGetOffsetDate(date: string, offset: number): FormattedDat
       monthLabel,
       day,
       dayLabel,
-      yearMonth: `${year}-${month}`,
-      date: `${year}-${month}-${day}`,
+      yearMonth: `${year}-${monthLabel}`,
+      date: `${year}-${monthLabel}-${dayLabel}`,
     }
   }
   console.error(`[lc-helpers] 日期格式不正确：${date} (YYYY-MM-DD 或 YYYY-MM)`)
-  return undefined
+  return {
+    year: 0,
+    month: 0,
+    monthLabel: '',
+    yearMonth: '',
+    date: '',
+  }
 }
