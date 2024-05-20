@@ -21,7 +21,7 @@
     "postinstall": "pnpm build"
   },
   "keywords": [
-    "Low Code Library"
+    "LC Library"
   ],
   "author": "Noah Yu",
   "repository": {

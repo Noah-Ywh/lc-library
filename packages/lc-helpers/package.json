@@ -1,7 +1,7 @@
 {
   "name": "@noahyu/lc-helpers",
   "version": "1.5.0",
-  "description": "LC Library Helpers",
+  "description": "LC Helpers",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
