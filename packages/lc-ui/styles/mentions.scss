@@ -28,8 +28,9 @@ $block: 'mentions';
   left: 0;
   bottom: calc(100% - 1px);
 
-  .lc-ul {
+  ul {
     padding: 2px 6px 4px;
+    margin: 0;
   }
 
   @include is('active') {
