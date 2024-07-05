@@ -16,12 +16,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 22
-          cache: 'pnpm'
 
       - name: Set up Corepack
-        run: corepack enable
+        run: corepack enable pnpm
 
-      - name: Set up Corepack
+      - name: Set up pnpm
         run: corepack use pnpm@latest
 
       - name: Install dependencies
