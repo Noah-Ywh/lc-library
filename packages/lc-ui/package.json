@@ -1,6 +1,7 @@
 {
   "name": "@noahyu/lc-ui",
   "version": "1.5.0",
+  "type": "module",
   "description": "LC UI",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -42,11 +43,11 @@
   },
   "dependencies": {
     "@noahyu/lc-helpers": "workspace:*",
-    "@vueuse/core": "^10.9.0",
+    "@vueuse/core": "^10.11.0",
     "tributejs": "^5.1.3"
   },
   "devDependencies": {
-    "typescript": "^5.4.5",
-    "vue": "^3.4.27"
+    "typescript": "^5.5.3",
+    "vue": "^3.4.31"
   }
 }

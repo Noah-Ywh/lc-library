@@ -1,6 +1,6 @@
 // commitlint.config.js
 /** @type {import('cz-git').UserConfig} */
-module.exports = {
+export default {
   extends: ['@commitlint/config-conventional'],
   rules: {
     // @see: https://commitlint.js.org/#/reference-rules
@@ -117,31 +117,11 @@ module.exports = {
     allowEmptyScopes: true,
     scopes: [],
     scopeOverrides: {
-      feat: [
-        { name: 'component' },
-        { name: 'util' },
-        { name: 'style' },
-      ],
-      fix: [
-        { name: 'component' },
-        { name: 'util' },
-        { name: 'style' },
-      ],
-      refactor: [
-        { name: 'component' },
-        { name: 'util' },
-        { name: 'style' },
-      ],
-      perf: [
-        { name: 'component' },
-        { name: 'util' },
-        { name: 'style' },
-      ],
-      revert: [
-        { name: 'component' },
-        { name: 'util' },
-        { name: 'style' },
-      ],
+      feat: [{ name: 'component' }, { name: 'util' }, { name: 'style' }],
+      fix: [{ name: 'component' }, { name: 'util' }, { name: 'style' }],
+      refactor: [{ name: 'component' }, { name: 'util' }, { name: 'style' }],
+      perf: [{ name: 'component' }, { name: 'util' }, { name: 'style' }],
+      revert: [{ name: 'component' }, { name: 'util' }, { name: 'style' }],
       chore: [
         { name: 'package' },
         { name: 'eslint' },

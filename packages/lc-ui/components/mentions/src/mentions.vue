@@ -36,7 +36,9 @@ function attachTribute(tributeDom: Ref<TributeElement | undefined>, options: LMe
 
   import('tributejs')
     .then((Tribute) => {
-      if (!tributeDom.value) throw new Error('[lc-ui] 加载 DOM 时发生错误')
+      if (!tributeDom.value) {
+        throw new Error('[lc-ui] 加载 DOM 时发生错误')
+      }
       tribute.value = new Tribute.default(tributeOptions)
       tribute.value.attach(tributeDom.value)
       tributeDom.value.tributeInstance = tribute.value
@@ -50,7 +52,9 @@ function attachTribute(tributeDom: Ref<TributeElement | undefined>, options: LMe
  * @
  * -------------------------- */
 function detachTribute(tributeDom: Ref<TributeElement | undefined>) {
-  if (!tributeDom.value?.tributeInstance) return
+  if (!tributeDom.value?.tributeInstance) {
+    return
+  }
 
   tributeDom.value.tributeInstance.detach(tributeDom.value)
   tributeDom.value.tributeInstance = undefined
@@ -94,7 +98,9 @@ function getInnerHTML(): string {
  * @
  * -------------------------- */
 function setInnerHTML(innerHTML: string) {
-  if (!containerEl.value) return
+  if (!containerEl.value) {
+    return
+  }
 
   const html = innerHTML.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&')
 
@@ -106,7 +112,9 @@ function setInnerHTML(innerHTML: string) {
  * @
  * -------------------------- */
 function clearInnerHTML() {
-  if (!containerEl.value) return
+  if (!containerEl.value) {
+    return
+  }
   containerEl.value.innerHTML = ''
 }
 

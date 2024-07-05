@@ -102,7 +102,7 @@ export const dts = (options: Options): Plugin => {
       return null
     },
     buildEnd: () => {
-      sourceFiles.length > 0 &&
+      if (sourceFiles.length > 0) {
         sourceFiles.map(async (sourceFile) => {
           const emitOutput = sourceFile.getEmitOutput()
           const emitFiles = emitOutput.getOutputFiles()
@@ -122,6 +122,7 @@ export const dts = (options: Options): Plugin => {
             consola.success(chalk.green(`DTS: ${chalk.bold(sourceFile.getFilePath())}`))
           })
         })
+      }
     },
   }
 }
