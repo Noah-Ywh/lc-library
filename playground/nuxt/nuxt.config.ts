@@ -16,7 +16,7 @@ export default defineNuxtConfig({
       ],
     },
   },
-  // css: ['@noahyu/lc-ui/styles/index.scss'],
+  css: ['@noahyu/lc-ui/styles/components.scss'],
   modules: [],
   vite: {
     vueJsx: {

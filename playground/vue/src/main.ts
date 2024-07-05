@@ -1,14 +1,9 @@
 import { createApp } from 'vue'
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+
 import App from './App.vue'
 
-// import '@noahyu/lc-ui/styles/index.scss'
+import router from './router'
 
-const routes: Array<RouteRecordRaw> = [{ path: '/', name: 'home', component: App }]
-
-const router = createRouter({
-  history: createWebHistory(),
-  routes,
-})
+import '@noahyu/lc-ui/styles/index.scss'
 
 createApp(App).use(router).mount('#app')

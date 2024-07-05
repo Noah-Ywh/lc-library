@@ -1,29 +1,29 @@
 {
   "name": "playground-vue",
+  "type": "module",
   "private": true,
   "description": "基于 Vue3 的预览环境",
   "scripts": {
-    "dev": "node -r @esbuild-kit/cjs-loader ./dev.ts && vite",
+    "dev": "vite",
     "build:test": "vue-tsc --noEmit && cross-env VUE_APP_MODE=test vite build"
   },
   "engines": {
     "node": ">=18.0.0"
   },
   "devDependencies": {
-    "@esbuild-kit/cjs-loader": "^2.4.4",
     "@noahyu/lc-helpers": "workspace:*",
     "@noahyu/lc-ui": "workspace:*",
-    "@vitejs/plugin-vue": "^5.0.4",
-    "@vitejs/plugin-vue-jsx": "^3.1.0",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "@vitejs/plugin-vue-jsx": "^4.0.0",
     "cross-env": "^7.0.3",
     "rollup-plugin-visualizer": "^5.12.0",
-    "sass": "^1.77.2",
-    "tslib": "^2.6.2",
-    "typescript": "^5.4.5",
-    "vite": "^5.2.11",
-    "vue": "^3.4.27",
-    "vue-router": "^4.3.2",
-    "vue-tsc": "^2.0.19"
+    "sass": "^1.77.6",
+    "tslib": "^2.6.3",
+    "typescript": "^5.5.3",
+    "vite": "^5.3.3",
+    "vue": "^3.4.31",
+    "vue-router": "^4.4.0",
+    "vue-tsc": "^2.0.26"
   },
   "browserslist": [
     "last 2 version",
