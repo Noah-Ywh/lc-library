@@ -5,8 +5,6 @@ import consola from 'consola'
 import chalk from 'chalk'
 import { format } from 'prettier'
 
-import type { BuiltInParserName } from 'prettier'
-
 const name = process.argv.at(-1)
 
 const CamelCaseName = (name || '')
@@ -14,7 +12,7 @@ const CamelCaseName = (name || '')
   .map((str) => str.slice(0, 1).toUpperCase() + str.slice(1))
   .join('')
 
-const formatCode = (code: string, parser: BuiltInParserName = 'typescript') =>
+const formatCode = (code, parser = 'typescript') =>
   format(code, {
     parser,
     semi: false,
