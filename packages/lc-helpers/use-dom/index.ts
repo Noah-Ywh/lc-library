@@ -16,7 +16,10 @@ export function useDomLengthUnit(val: string | number, unit: string = 'px') {
         }
       }
     }
-    console.error('[lc-helpers] 添加单位失败')
+    if (Number(val)) {
+      return val + 'px'
+    }
+    console.error('[lc-helpers] 无法处理的值')
     return val
   } else if (typeof val === 'number') {
     return val + unit
