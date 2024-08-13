@@ -47,7 +47,10 @@ function isHTMLElement(value: unknown) {
  * @param { HTMLElement } element 要监听的元素
  * @param { Funtion } func 回调函数
  */
-export function useDomSizeChange(element: HTMLElement, func: (contentRect: ContentRect) => void) {
+export function useDomSizeChange<T extends HTMLElement>(
+  element: T,
+  func: (contentRect: ContentRect) => void,
+) {
   if (!isHTMLElement(element)) {
     console.error('[lc-helpers] 不是 HTML 元素')
     return
