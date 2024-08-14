@@ -7,23 +7,20 @@
     "dev": "vite",
     "build:test": "vue-tsc --noEmit && cross-env VUE_APP_MODE=test vite build"
   },
-  "engines": {
-    "node": ">=18.0.0"
-  },
   "devDependencies": {
     "@noahyu/lc-helpers": "workspace:*",
     "@noahyu/lc-ui": "workspace:*",
-    "@vitejs/plugin-vue": "^5.0.5",
+    "@vitejs/plugin-vue": "^5.1.2",
     "@vitejs/plugin-vue-jsx": "^4.0.0",
     "cross-env": "^7.0.3",
     "rollup-plugin-visualizer": "^5.12.0",
-    "sass": "^1.77.6",
+    "sass": "^1.77.8",
     "tslib": "^2.6.3",
-    "typescript": "^5.5.3",
-    "vite": "^5.3.3",
-    "vue": "^3.4.31",
-    "vue-router": "^4.4.0",
-    "vue-tsc": "^2.0.26"
+    "typescript": "^5.5.4",
+    "vite": "^5.4.0",
+    "vue": "^3.4.37",
+    "vue-router": "^4.4.3",
+    "vue-tsc": "^2.0.29"
   },
   "browserslist": [
     "last 2 version",

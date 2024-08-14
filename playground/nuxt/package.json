@@ -13,9 +13,9 @@
     "@noahyu/lc-helpers": "workspace:*",
     "@noahyu/lc-ui": "workspace:*",
     "@vitejs/plugin-vue-jsx": "^4.0.0",
-    "nuxt": "^3.12.3",
-    "sass": "^1.77.6",
-    "vue": "^3.4.31"
+    "nuxt": "^3.12.4",
+    "sass": "^1.77.8",
+    "vue": "^3.4.37"
   },
   "browserslist": [
     "last 2 version",
