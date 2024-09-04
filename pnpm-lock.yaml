@@ -237,6 +237,10 @@ importers:
         version: 3.4.37(typescript@5.5.4)
 
   packages/lc-helpers:
+    dependencies:
+      konva:
+        specifier: ^9.3.14
+        version: 9.3.14
     devDependencies:
       typescript:
         specifier: ^5.5.4
