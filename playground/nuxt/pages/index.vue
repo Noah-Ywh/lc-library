@@ -12,6 +12,10 @@ const components = [
     name: '提及列表',
     link: 'mentions',
   },
+  {
+    name: 'Konva',
+    link: 'helpers',
+  },
 ]
 </script>
 

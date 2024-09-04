@@ -16,8 +16,10 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   css: ['@noahyu/lc-ui/styles/components.scss'],
   modules: [],
+
   vite: {
     vueJsx: {
       transformOn: true,
@@ -26,10 +28,14 @@ export default defineNuxtConfig({
       enableObjectSlots: true,
     },
   },
+
   experimental: {
     asyncContext: true,
   },
+
   devServer: {
     port: 3001,
   },
+
+  compatibilityDate: '2024-08-15',
 })
