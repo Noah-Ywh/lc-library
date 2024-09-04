@@ -13,7 +13,7 @@ const {
 } = useDateGetOffsetDate(date, offset)
 </script>
 
-# 日期相关
+# 日期
 
 ```ts
 import { useDateGetNowYMD, useDateGetOffsetDate } from '@noahyu/lc-helpers'

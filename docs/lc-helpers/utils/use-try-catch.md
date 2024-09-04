@@ -1,4 +1,4 @@
-# tryCatch
+# TryCatch
 
 ```ts
 import { useTryCatch } from '@noahyu/lc-helpers'

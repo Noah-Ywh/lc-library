@@ -23,4 +23,7 @@ export default defineConfig({
       label: '页面导航',
     },
   },
+  markdown: {
+    lineNumbers: true,
+  },
 })

@@ -1,4 +1,4 @@
-# DOM 相关
+# DOM
 
 ```ts
 import { useDomLengthUnit, useDomSizeChange } from '@noahyu/lc-helpers'
