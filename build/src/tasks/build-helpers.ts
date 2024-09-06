@@ -21,7 +21,10 @@ export const buildHelpers = async (isWatch?: boolean) => {
   await rimraf(resolve(helpersRoot, 'dist'))
 
   const inputOptions: InputOptions = {
-    input: `${helpersRoot}/index.ts`,
+    input: {
+      index: `${helpersRoot}/index.ts`,
+      'lc-konva': `${helpersRoot}/lc-konva.ts`,
+    },
     plugins: [
       nodeResolve({
         extensions: ['.mjs', '.js', '.json', '.ts'],
@@ -41,7 +44,8 @@ export const buildHelpers = async (isWatch?: boolean) => {
 
   const outputOptions: OutputOptions = {
     format: 'esm',
-    file: resolve(helpersRoot, 'dist/index.js'),
+    dir: resolve(helpersRoot, 'dist'),
+    preserveModules: true,
     sourcemap: true,
   }
 
