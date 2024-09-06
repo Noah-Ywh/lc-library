@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Konva from 'konva'
-import { Input, Slot, useDomSizeChange } from '@noahyu/lc-helpers'
+import { useDomSizeChange } from '@noahyu/lc-helpers'
+import { Input, Slot } from '@noahyu/lc-helpers/konva'
 import TextEditVue from '../components/TextEdit.vue'
 
 const stageRef = ref<HTMLDivElement | null>(null)
