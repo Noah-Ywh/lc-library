@@ -1,7 +1,7 @@
 # Slot 插槽
 
 ```ts
-import { Slot } from '@noahyu/lc-helpers'
+import { Slot } from '@noahyu/lc-helpers/konva'
 ```
 
 ::: warning 环境

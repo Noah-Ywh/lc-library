@@ -1,7 +1,7 @@
 # Input 输入框
 
 ```ts
-import { Input } from '@noahyu/lc-helpers'
+import { Input } from '@noahyu/lc-helpers/konva'
 ```
 
 ::: warning 环境
