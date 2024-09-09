@@ -31,7 +31,7 @@ export const buildHelpers = async (isWatch?: boolean) => {
       }),
       commonjs(),
       esbuild({
-        sourceMap: true,
+        sourceMap: false,
         target: 'ESNext',
       }),
       typescript({ tsconfig: `${helpersRoot}/tsconfig.json` }),
@@ -46,7 +46,7 @@ export const buildHelpers = async (isWatch?: boolean) => {
     format: 'esm',
     dir: resolve(helpersRoot, 'dist'),
     preserveModules: true,
-    sourcemap: true,
+    sourcemap: false,
   }
 
   async function build() {

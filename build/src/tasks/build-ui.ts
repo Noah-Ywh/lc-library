@@ -92,7 +92,7 @@ export const buildUI = async () => {
       format: 'esm',
       dir: resolve(uiRoot, 'dist'),
       preserveModules: true,
-      sourcemap: 'hidden',
+      sourcemap: false,
     })
   }
 
