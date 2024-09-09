@@ -41,6 +41,6 @@
   },
   "devDependencies": {
     "typescript": "^5.5.4",
-    "vue": "^3.4.37"
+    "vue": "^3.5.3"
   }
 }
