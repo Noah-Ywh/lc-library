@@ -1,3 +1,1 @@
-export * from './components'
-
-export { default } from './defaults'
+export * from './components/header-menu'
