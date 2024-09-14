@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { LMentions } from '../../../packages/lc-ui'
+import { LMentions } from '../../../packages/lc-ui/client'
 
-import type { LMentionsOptions } from '../../../packages/lc-ui'
+import type { LMentionsOptions } from '../../../packages/lc-ui/client'
 
 const options = ref<LMentionsOptions>({
   values: [
@@ -23,7 +23,7 @@ function showMentions() {
 
 <template>
   <div class="lc-ui__preview">
-    <LMentions ref="mentionsRef" :options="options" />
+    <LMentions ref="mentionsRef" :options="options" :paste-img="false" />
     <button @mousedown.prevent="showMentions">点击我</button>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LGanttChart } from '../../../packages/lc-ui'
+import { LGanttChart } from '../../../packages/lc-ui/client'
 </script>
 
 <template>
