@@ -120,14 +120,6 @@ const timeout = ref<NodeJS.Timeout | null>(null)
  * @
  * -------------------------- */
 function onInput() {
-  if (containerEl.value && !props.pasteImg) {
-    containerEl.value.innerHTML = containerEl.value.innerHTML.replace(
-      /<img\s+[^>]*src=["']data:image\/[^"']*["'][^>]*>/gi,
-      ' ',
-    )
-    focusMentions()
-  }
-
   function sendInnerHTML() {
     emits('innerHtml', containerEl.value?.innerHTML || '')
   }
@@ -139,6 +131,24 @@ function onInput() {
     timeout.value = setTimeout(sendInnerHTML, props.debounce)
   } else {
     sendInnerHTML()
+  }
+}
+
+/** 粘贴事件
+ * @
+ * -------------------------- */
+function onPaste(event: ClipboardEvent) {
+  if (!props.pasteImg) {
+    const clipboardData = event.clipboardData
+    const items = clipboardData?.items || []
+
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].kind !== 'string') {
+        // 阻止粘贴非文本内容
+        event.preventDefault()
+        return
+      }
+    }
   }
 }
 
@@ -184,6 +194,7 @@ defineExpose({
       :class="['lc-p', bem('container')]"
       :style="{ height }"
       @input="onInput"
+      @paste="onPaste"
     ></p>
   </div>
 </template>
