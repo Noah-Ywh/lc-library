@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { ref, unref, onMounted, onBeforeUnmount, watch, nextTick } from 'vue'
 
+import Tribute from 'tributejs'
+
 import { mentionsProps, mentionsEmits, defaultOptions } from './mentions'
 import { useNamespace } from '@noahyu/lc-helpers'
 
 import type { Ref } from 'vue'
-import type Tribute from 'tributejs'
 import type { LMentionsOptions, LMentionsValues } from './mentions'
 
 export interface TributeElement extends HTMLElement {
@@ -34,18 +35,13 @@ function attachTribute(tributeDom: Ref<TributeElement | undefined>, options: LMe
     noMatchTemplate: () => props.noMatchTip,
   }
 
-  import('tributejs')
-    .then((Tribute) => {
-      if (!tributeDom.value) {
-        throw new Error('[lc-ui] 加载 DOM 时发生错误')
-      }
-      tribute.value = new Tribute.default(tributeOptions)
-      tribute.value.attach(tributeDom.value)
-      tributeDom.value.tributeInstance = tribute.value
-    })
-    .catch(() => {
-      throw new Error('[lc-ui] 加载 tributejs 时发生错误')
-    })
+  if (!tributeDom.value) {
+    throw new Error('[lc-ui] 加载 DOM 时发生错误')
+  }
+
+  tribute.value = new Tribute(tributeOptions)
+  tribute.value.attach(tributeDom.value)
+  tributeDom.value.tributeInstance = tribute.value
 }
 
 /** 移除 Tribute
@@ -124,6 +120,14 @@ const timeout = ref<NodeJS.Timeout | null>(null)
  * @
  * -------------------------- */
 function onInput() {
+  if (containerEl.value && !props.pasteImg) {
+    containerEl.value.innerHTML = containerEl.value.innerHTML.replace(
+      /<img\s+[^>]*src=["']data:image\/[^"']*["'][^>]*>/gi,
+      ' ',
+    )
+    focusMentions()
+  }
+
   function sendInnerHTML() {
     emits('innerHtml', containerEl.value?.innerHTML || '')
   }

@@ -35,6 +35,11 @@ export const mentionsProps = {
     type: String,
     default: '未找到匹配数据',
   },
+  /** 允许粘贴为图片 */
+  pasteImg: {
+    type: Boolean,
+    default: true,
+  },
 }
 
 export const mentionsEmits = {
