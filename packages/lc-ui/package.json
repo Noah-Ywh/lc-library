@@ -1,6 +1,6 @@
 {
   "name": "@noahyu/lc-ui",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "type": "module",
   "description": "LC UI",
   "main": "dist/index.js",

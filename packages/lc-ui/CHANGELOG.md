@@ -1,4 +1,32 @@
-# [1.5.0](https://github.com/Noah-Ywh/lc-library/compare/v1.4.0...v1.5.0) (2024-5-15)
+# [1.6.0](https://github.com/Noah-Ywh/lc-library/compare/v1.5.0...v1.6.0) (2024-09-14)
+
+
+### ✨Features
+
+* **LMentions:** 控制是否能粘贴为base64格式的图片 ([46db623](https://github.com/Noah-Ywh/lc-library/commit/46db623e19f1f58e6c0c766042ce79a80f18fbc2))
+
+
+### 🐛Bug Fixes
+
+* **lc-ui:** `LMentions` 优化组件样式 ([ebaace8](https://github.com/Noah-Ywh/lc-library/commit/ebaace8daed346e258bd78020458c668e191e507))
+
+
+### ⚡Performance Improvements
+
+* **lc-ui:** 不提供默认导出 ([81149d8](https://github.com/Noah-Ywh/lc-library/commit/81149d82176ea939dccf3d5e7861090d230f5473))
+
+
+### 🛠️Chore
+
+* 更新描述 ([7988feb](https://github.com/Noah-Ywh/lc-library/commit/7988feb10e3b06d7689a150458587e156ab5f4b8))
+* **eslint:** eslint 更新至 v9 ([2913654](https://github.com/Noah-Ywh/lc-library/commit/2913654ccc6923f24e3b2056c03eaec1e97317e2))
+* **package:** 更新依赖 ([5986025](https://github.com/Noah-Ywh/lc-library/commit/598602578bf901c0d4332f55f148131862f48cb7))
+* **package:** update deps ([d203673](https://github.com/Noah-Ywh/lc-library/commit/d20367378a8231e4576f9004644107faf48ed954))
+* update deps ([bb2d8da](https://github.com/Noah-Ywh/lc-library/commit/bb2d8dabfa8f99fa79c578bff339bc7c508ff907))
+
+
+
+# [1.5.0](https://github.com/Noah-Ywh/lc-library/compare/v1.4.0...v1.5.0) (2024-05-15)
 
 
 ### ✨Features
@@ -12,7 +40,7 @@
 
 
 
-# [1.4.0](https://github.com/Noah-Ywh/lc-library/compare/v1.3.1...v1.4.0) (2024-4-30)
+# [1.4.0](https://github.com/Noah-Ywh/lc-library/compare/v1.3.1...v1.4.0) (2024-04-30)
 
 
 ### ✨Features
@@ -26,7 +54,7 @@
 
 
 
-## [1.3.1](https://github.com/Noah-Ywh/lc-library/compare/v1.3.0...v1.3.1) (2024-4-23)
+## [1.3.1](https://github.com/Noah-Ywh/lc-library/compare/v1.3.0...v1.3.1) (2024-04-23)
 
 
 ### 🐛Bug Fixes
@@ -36,7 +64,7 @@
 
 
 
-# [1.3.0](https://github.com/Noah-Ywh/lc-library/compare/v1.2.0...v1.3.0) (2024-4-22)
+# [1.3.0](https://github.com/Noah-Ywh/lc-library/compare/v1.2.0...v1.3.0) (2024-04-22)
 
 
 ### ✨Features
@@ -50,7 +78,7 @@
 
 
 
-# [1.2.0](https://github.com/Noah-Ywh/lc-library/compare/v1.1.0...v1.2.0) (2024-4-8)
+# [1.2.0](https://github.com/Noah-Ywh/lc-library/compare/v1.1.0...v1.2.0) (2024-04-08)
 
 
 ### ✨Features
@@ -59,7 +87,7 @@
 
 
 
-# [1.1.0](https://github.com/Noah-Ywh/lc-library/compare/v1.0.0...v1.1.0) (2024-4-8)
+# [1.1.0](https://github.com/Noah-Ywh/lc-library/compare/v1.0.0...v1.1.0) (2024-04-08)
 
 
 ### ✨Features
@@ -73,7 +101,7 @@
 
 
 
-# [1.0.0](https://github.com/Noah-Ywh/lc-library/compare/9a7a82cbf946e9a1d2a0382dd09f78a4f239a321...v1.0.0) (2024-4-7)
+# [1.0.0](https://github.com/Noah-Ywh/lc-library/compare/9a7a82cbf946e9a1d2a0382dd09f78a4f239a321...v1.0.0) (2024-04-07)
 
 
 ### ✨Features
