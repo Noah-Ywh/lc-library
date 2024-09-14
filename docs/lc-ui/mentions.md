@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { LMentions } from '@noahyu/lc-ui'
+import { LMentions } from '@noahyu/lc-ui/client'
 
 const options = ref({
   values: [
