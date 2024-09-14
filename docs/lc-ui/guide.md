@@ -20,39 +20,26 @@ npm install @noahyu/lc-ui@next --save
 
 :::
 
-## 手动导入 <Badge type="tip" text="推荐" vertical="middle" />
+## 导入组件
 
-组件引用更清晰
+支持 SSR 的组件
 
 ```vue
 <script setup lang="ts">
-import { LMentions } from '@noahyu/lc-ui'
+import { LHeaderMenu } from '@noahyu/lc-ui'
 </script>
 
 <template>
-  <LMentions />
+  <LHeaderMenu />
 </template>
 ```
 
-## 完整导入
-
-厉害了，一次性导入所有组件
-
-```ts
-// main.ts
-import { createApp } from 'vue'
-import App from './App.vue'
-
-import lcui from '@noahyu/lc-ui'
-
-const app = createApp(App)
-
-app.use(lcui)
-app.mount('#app')
-```
+不支持 SSR 的组件
 
 ```vue
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { LMentions } from '@noahyu/lc-ui/client'
+</script>
 
 <template>
   <LMentions />
@@ -63,11 +50,12 @@ app.mount('#app')
 
 LC UI 其实带有少量的 Normalize 样式，但是考虑到合适的才是最好的，为了减少冲突，不会默认导入内置的 Normalize 样式
 
-如果要使用 LC UI 自带的 Normalize 样式，可以导入 `@noahyu/lc-ui/dist/styles/lc-normalize.css`
+如果要使用 LC UI 自带的 Normalize 样式，可以导入 `@noahyu/lc-ui/styles/lc-normalize.css`
 
 ```css
 html {
-  font: normal normal var(--lc-font-weight) var(--lc-font-size) / var(--lc-line-height) var(--lc-font-sans-serif);
+  font: normal normal var(--lc-font-weight) var(--lc-font-size) / var(--lc-line-height)
+    var(--lc-font-sans-serif);
 }
 body {
   color: var(--lc-text);
