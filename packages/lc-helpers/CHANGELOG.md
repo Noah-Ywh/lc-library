@@ -1,3 +1,12 @@
+## [1.6.2](https://github.com/Noah-Ywh/lc-library/compare/v1.6.1...v1.6.2) (2024-09-18)
+
+
+### 🐛Bug Fixes
+
+* **Konva Slot:** 监听 wheel 事件并正确设置坐标 ([dab02a8](https://github.com/Noah-Ywh/lc-library/commit/dab02a8b4c48073c1312f6f68cc8bab38bebcf28))
+
+
+
 ## [1.6.1](https://github.com/Noah-Ywh/lc-library/compare/v1.6.0...v1.6.1) (2024-09-14)
 
 
