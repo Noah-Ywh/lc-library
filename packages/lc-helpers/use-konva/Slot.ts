@@ -35,31 +35,15 @@ export class Slot extends Konva.Group {
       stage.container().appendChild(this.#container)
     }
 
-    stage.on('dragmove', this.#dragmoveStage)
-    stage.on('wheel', this.#dragmoveStage)
-    this.on('dragmove', this.#dragmoveSlot)
+    stage.on('dragmove', this.#dragmove)
+    stage.on('wheel', this.#dragmove)
+    this.on('dragmove', this.#dragmove)
 
     this.mount = this.mount.bind(this)
     this.destroy = this.destroy.bind(this)
   }
 
-  #dragmoveStage = (e: Konva.KonvaEventObject<DragEvent> | Konva.KonvaEventObject<WheelEvent>) => {
-    if (e.target === e.target.getStage()) {
-      if (this.#animationFrameId !== null) {
-        cancelAnimationFrame(this.#animationFrameId)
-      }
-
-      this.#animationFrameId = requestAnimationFrame(() => {
-        if (this.#slot) {
-          const { x, y } = this.absolutePosition()
-          this.#slot.style.left = `${x}px`
-          this.#slot.style.top = `${y}px`
-        }
-        this.#animationFrameId = null
-      })
-    }
-  }
-  #dragmoveSlot = () => {
+  #dragmove = () => {
     if (this.#animationFrameId !== null) {
       cancelAnimationFrame(this.#animationFrameId)
     }
@@ -107,9 +91,9 @@ export class Slot extends Konva.Group {
 
   /** 移除图形和所有事件 */
   public destroy() {
-    this.#stage.off('dragmove', this.#dragmoveStage)
-    this.#stage.off('wheel', this.#dragmoveStage)
-    this.off('dragmove', this.#dragmoveSlot)
+    this.#stage.off('dragmove', this.#dragmove)
+    this.#stage.off('wheel', this.#dragmove)
+    this.off('dragmove', this.#dragmove)
 
     this.#app?.unmount()
 
