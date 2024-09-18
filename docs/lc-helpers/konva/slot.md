@@ -14,7 +14,7 @@ import { Slot } from '@noahyu/lc-helpers/konva'
 
 ## 创建插槽对象
 
-通过插槽对象的 `mount` 方法提供一个组件
+通过插槽对象的 `mount` 方法挂载一个 Vue 组件
 
 ```ts{30}
 import MyComponent from '@components/my-component.vue'
@@ -49,9 +49,15 @@ slot.add(rect)
 slot.mount(MyComponent)
 ```
 
+移除 Vue 组件
+
+```ts
+slot.unmount()
+```
+
 ## 依赖注入
 
-提供一个 ref 对象，通过插槽对象的 `mount` 方法提供一个组件以及数据，组件中通过 `inject('KonvaSlotProps')` 获取对象
+提供一个 ref 对象，通过插槽对象的 `mount` 方法提供一个 Vue 组件以及数据，组件中通过 `inject('KonvaSlotProps')` 获取对象
 
 ```ts{3,32}
 import MyComponent from '@components/my-component.vue'
