@@ -1,3 +1,12 @@
+## [1.6.3](https://github.com/Noah-Ywh/lc-library/compare/v1.6.2...v1.6.3) (2024-09-18)
+
+
+### 🐛Bug Fixes
+
+* **Konva Slot:** 移动画布或图形时，正确设置坐标 ([d92072b](https://github.com/Noah-Ywh/lc-library/commit/d92072b197b3cd99edb5ff904a6837923ae6cf9a))
+
+
+
 ## [1.6.2](https://github.com/Noah-Ywh/lc-library/compare/v1.6.1...v1.6.2) (2024-09-18)
 
 
