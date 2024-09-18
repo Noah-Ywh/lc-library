@@ -10,8 +10,9 @@ export class Slot extends Konva.Group {
   #container: HTMLElement | null
   #containerId: string
 
-  #slot: HTMLElement
+  #slot: HTMLElement | null = null
   #provideKey: string
+  #animationFrameId: number | null = null
 
   #app: App<Element> | undefined
 
@@ -34,52 +35,88 @@ export class Slot extends Konva.Group {
       stage.container().appendChild(this.#container)
     }
 
-    const { x, y } = this.absolutePosition()
-    this.#slot = document.createElement('div')
-    this.#slot.style.overflow = 'hidden'
-    this.#slot.style.position = 'absolute'
-    this.#slot.style.left = `${x}px`
-    this.#slot.style.top = `${y}px`
-    this.#slot.style.zIndex = `${this.getZIndex()}`
-
-    this.#container?.appendChild(this.#slot)
-
     stage.on('dragmove', this.#dragmoveStage)
+    stage.on('wheel', this.#dragmoveStage)
     this.on('dragmove', this.#dragmoveSlot)
 
     this.mount = this.mount.bind(this)
     this.destroy = this.destroy.bind(this)
   }
 
-  #dragmoveStage = (e: Konva.KonvaEventObject<DragEvent>) => {
+  #dragmoveStage = (e: Konva.KonvaEventObject<DragEvent> | Konva.KonvaEventObject<WheelEvent>) => {
     if (e.target === e.target.getStage()) {
-      const { x, y } = this.absolutePosition()
-      this.#slot.style.left = `${x}px`
-      this.#slot.style.top = `${y}px`
+      if (this.#animationFrameId !== null) {
+        cancelAnimationFrame(this.#animationFrameId)
+      }
+
+      this.#animationFrameId = requestAnimationFrame(() => {
+        if (this.#slot) {
+          const { x, y } = this.absolutePosition()
+          this.#slot.style.left = `${x}px`
+          this.#slot.style.top = `${y}px`
+        }
+        this.#animationFrameId = null
+      })
     }
   }
   #dragmoveSlot = () => {
-    const { x, y } = this.absolutePosition()
-    this.#slot.style.left = `${x}px`
-    this.#slot.style.top = `${y}px`
+    if (this.#animationFrameId !== null) {
+      cancelAnimationFrame(this.#animationFrameId)
+    }
+
+    this.#animationFrameId = requestAnimationFrame(() => {
+      if (this.#slot) {
+        const { x, y } = this.absolutePosition()
+        this.#slot.style.left = `${x}px`
+        this.#slot.style.top = `${y}px`
+      }
+      this.#animationFrameId = null
+    })
   }
 
+  /** 挂载组件 */
   public mount<P>(componentVue: Component, props?: P) {
-    this.#app = createApp(componentVue)
+    const { x, y } = this.absolutePosition()
 
-    this.#app.provide(`${this.#provideKey}`, props)
+    if (!this.#slot) {
+      this.#slot = document.createElement('div')
+      this.#slot.style.overflow = 'hidden'
+      this.#slot.style.position = 'absolute'
+      this.#slot.style.left = `${x}px`
+      this.#slot.style.top = `${y}px`
+      this.#slot.style.zIndex = `${this.getZIndex()}`
 
-    if (this.#slot) {
+      this.#container?.appendChild(this.#slot)
+
+      this.#app = createApp(componentVue)
+
+      this.#app.provide(`${this.#provideKey}`, props)
+
       this.#app.mount(this.#slot)
     }
   }
 
+  /** 移除组件 */
+  public unmount() {
+    this.#app?.unmount()
+    if (this.#slot) {
+      this.#container?.removeChild(this.#slot)
+      this.#slot = null
+    }
+  }
+
+  /** 移除图形和所有事件 */
   public destroy() {
     this.#stage.off('dragmove', this.#dragmoveStage)
+    this.#stage.off('wheel', this.#dragmoveStage)
     this.off('dragmove', this.#dragmoveSlot)
 
     this.#app?.unmount()
-    this.#container?.removeChild(this.#slot)
+
+    if (this.#slot) {
+      this.#container?.removeChild(this.#slot)
+      this.#slot = null
+    }
 
     super.destroy()
 
