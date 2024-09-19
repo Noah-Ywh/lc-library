@@ -55,14 +55,35 @@ slot.mount(MyComponent)
 slot.unmount()
 ```
 
+## Props
+
+子组件可以通过 `Props` 接收到根节点的定位值： `top` `left`
+
+子组件
+
+```vue{2}
+<script setup lang="ts">
+const props = defineProps<{
+  top: number;
+  left: number;
+}>();
+</script>
+
+<template>
+
+</template>
+
+<style lang="scss" scoped></style>
+```
+
 ## 依赖注入
 
-提供一个 ref 对象，通过插槽对象的 `mount` 方法提供一个 Vue 组件以及数据，组件中通过 `inject('KonvaSlotProps')` 获取对象
+提供一个 ref 对象，通过插槽对象的 `mount` 方法提供一个 Vue 组件以及数据，组件中通过 `inject('KonvaSlotProvide')` 获取对象
 
 ```ts{3,32}
 import MyComponent from '@components/my-component.vue'
 
-const props = ref('向组件提供数据')
+const text = ref('向组件提供数据')
 
 const stage = new Konva.Stage({
   container: '#container',
@@ -91,14 +112,14 @@ const slot = new Slot(
 )
 
 slot.add(rect)
-slot.mount(MyComponent, props)
+slot.mount(MyComponent, text)
 ```
 
 子组件
 
 ```vue{2}
 <script setup lang="ts">
-const text = inject('KonvaSlotProps')
+const text = inject('KonvaSlotProvide')
 </script>
 
 <template>
