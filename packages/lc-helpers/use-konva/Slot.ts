@@ -62,9 +62,14 @@ export class Slot extends Konva.Group {
   public mount<P>(componentVue: Component, props?: P) {
     const { x, y } = this.absolutePosition()
 
+    const params = {
+      x,
+      y,
+      ...props,
+    }
+
     if (!this.#slot) {
       this.#slot = document.createElement('div')
-      this.#slot.style.overflow = 'hidden'
       this.#slot.style.position = 'absolute'
       this.#slot.style.left = `${x}px`
       this.#slot.style.top = `${y}px`
@@ -74,7 +79,7 @@ export class Slot extends Konva.Group {
 
       this.#app = createApp(componentVue)
 
-      this.#app.provide(`${this.#provideKey}`, props)
+      this.#app.provide(`${this.#provideKey}`, params)
 
       this.#app.mount(this.#slot)
     }
