@@ -20,7 +20,7 @@ export class Slot extends Konva.Group {
     super(config)
 
     this.#stage = stage
-    this.#provideKey = 'KonvaSlotProps'
+    this.#provideKey = 'KonvaSlotProvide'
 
     this.#containerId = 'lc-helpers-konva-slot'
     this.#container = document.getElementById(this.#containerId)
@@ -59,13 +59,12 @@ export class Slot extends Konva.Group {
   }
 
   /** 挂载组件 */
-  public mount<P>(componentVue: Component, props?: P) {
+  public mount<P>(componentVue: Component, args?: P) {
     const { x, y } = this.absolutePosition()
 
-    const params = {
-      x,
-      y,
-      ...props,
+    const props = {
+      top: y,
+      left: x,
     }
 
     if (!this.#slot) {
@@ -77,9 +76,9 @@ export class Slot extends Konva.Group {
 
       this.#container?.appendChild(this.#slot)
 
-      this.#app = createApp(componentVue)
+      this.#app = createApp(componentVue, props)
 
-      this.#app.provide(`${this.#provideKey}`, params)
+      this.#app.provide(`${this.#provideKey}`, args)
 
       this.#app.mount(this.#slot)
     }
