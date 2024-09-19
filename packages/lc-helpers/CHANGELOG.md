@@ -1,3 +1,12 @@
+## [1.6.5](https://github.com/Noah-Ywh/lc-library/compare/v1.6.4...v1.6.5) (2024-09-19)
+
+
+### 🐛Bug Fixes
+
+* **lc-helpers:** 区分 props 和 provide，保持 provide 的响应性 ([a5cac3b](https://github.com/Noah-Ywh/lc-library/commit/a5cac3bbadf02bdcf3d5cbe4ef28e7b2fb95a9ed))
+
+
+
 ## [1.6.4](https://github.com/Noah-Ywh/lc-library/compare/v1.6.3...v1.6.4) (2024-09-19)
 
 
