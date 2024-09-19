@@ -1,3 +1,12 @@
+## [1.6.4](https://github.com/Noah-Ywh/lc-library/compare/v1.6.3...v1.6.4) (2024-09-19)
+
+
+### 🐛Bug Fixes
+
+* **lc-helpers:** 正确传递当前 Konva Slot 所在位置 ([bf1dcf5](https://github.com/Noah-Ywh/lc-library/commit/bf1dcf502636c7ba0fc49d4bb4a0b8655a4091d2))
+
+
+
 ## [1.6.3](https://github.com/Noah-Ywh/lc-library/compare/v1.6.2...v1.6.3) (2024-09-18)
 
 
