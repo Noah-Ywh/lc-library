@@ -1,19 +1,17 @@
 <script setup lang="ts">
 import { LMentions } from '../../../packages/lc-ui/client'
 
-import type { LMentionsOptions } from '../../../packages/lc-ui/client'
+import type { LMentionsValues } from '../../../packages/lc-ui/client'
 
-const options = ref<LMentionsOptions>({
-  values: [
-    {
-      label: 'noah',
-      value: '1',
-      link: 'https://github.com/Noah-Ywh/lc-library',
-      avatar: 'https://lc.ytarc.com/logo.jpg',
-    },
-    { label: '刘某', value: '2' },
-  ],
-})
+const values = ref<LMentionsValues[]>([
+  {
+    label: 'noah',
+    value: '1',
+    link: 'https://github.com/Noah-Ywh/lc-library',
+    avatar: 'https://lc.ytarc.com/logo.jpg',
+  },
+  { label: '刘某', value: '2' },
+])
 
 const mentionsRef = ref<InstanceType<typeof LMentions>>()
 function showMentions() {
@@ -23,7 +21,7 @@ function showMentions() {
 
 <template>
   <div class="lc-ui__preview">
-    <LMentions ref="mentionsRef" :options="options" :paste-img="false" />
+    <LMentions ref="mentionsRef" :values="values" lookup="label" :paste-img="false" />
     <button @mousedown.prevent="showMentions">点击我</button>
   </div>
 </template>
