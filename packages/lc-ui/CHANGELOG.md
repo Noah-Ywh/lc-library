@@ -1,3 +1,13 @@
+## [1.6.6](https://github.com/Noah-Ywh/lc-library/compare/v1.6.5...v1.6.6) (2024-09-23)
+
+
+### 🐛Bug Fixes
+
+* **LMentions:** 自定义搜索 key ([0faf90f](https://github.com/Noah-Ywh/lc-library/commit/0faf90f434a590611880859b8e4c6e2bd27a7adf))
+* **LMentions:** 阻止粘贴内容包含图片 ([b082500](https://github.com/Noah-Ywh/lc-library/commit/b082500b7ffab8b4d0aace22937fd080778a65e1))
+
+
+
 ## [1.6.5](https://github.com/Noah-Ywh/lc-library/compare/v1.6.4...v1.6.5) (2024-09-19)
 
 
