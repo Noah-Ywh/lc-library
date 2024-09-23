@@ -97,13 +97,15 @@ function showMentions() {
 
 ### Props
 
-| Prop       |        Type        |     Default      | Required |         Description          |
-| ---------- | :----------------: | :--------------: | :------: | :--------------------------: |
-| options    | `LMentionsOptions` |                  |  `true`  |           提及列表           |
-| height     |      `string`      |                  | `false`  |          编辑器高度          |
-| debounce   |      `number`      |       `0`        | `false`  | 防抖时间，如果不提供则不防抖 |
-| noMatchTip |      `string`      | `未找到匹配数据` | `false`  |    找不到匹配时的提示文案    |
-| pasteImg   |     `boolean`      |      `true`      | `false`  |  允许粘贴为base64格式的图片  |
+| Prop       |        Type         |     Default      | Required |         Description          |
+| ---------- | :-----------------: | :--------------: | :------: | :--------------------------: |
+| values     | `LMentionsValues[]` |                  |  `true`  |           提及列表           |
+| lookup     | `'value'\|'label'`  |     `value`      | `false`  |      在对象中搜索的 key      |
+| fillAttr   | `'value'\|'label'`  |     `label`      | `false`  |       插入到内容的 key       |
+| height     |      `string`       |                  | `false`  |          编辑器高度          |
+| debounce   |      `number`       |       `0`        | `false`  | 防抖时间，如果不提供则不防抖 |
+| noMatchTip |      `string`       | `未找到匹配数据` | `false`  |    找不到匹配时的提示文案    |
+| pasteImg   |      `boolean`      |      `true`      | `false`  |  允许粘贴为base64格式的图片  |
 
 ### Emits
 
