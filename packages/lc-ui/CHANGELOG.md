@@ -1,3 +1,13 @@
+## [1.6.7](https://github.com/Noah-Ywh/lc-library/compare/v1.6.6...v1.6.7) (2024-09-23)
+
+
+### 🐛Bug Fixes
+
+* **LMentions:** 不允许粘贴文件类型数据 ([4312120](https://github.com/Noah-Ywh/lc-library/commit/4312120e62c1620784b02c2457318fe18bd8b974))
+* **LMentions:** 提及搜到不到数据时不显示提示 ([47e35b9](https://github.com/Noah-Ywh/lc-library/commit/47e35b93a2d100824d12ba048c447d4779338374))
+
+
+
 ## [1.6.6](https://github.com/Noah-Ywh/lc-library/compare/v1.6.5...v1.6.6) (2024-09-23)
 
 
