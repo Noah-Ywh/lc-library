@@ -146,7 +146,7 @@ function onPaste(event: ClipboardEvent) {
 
     // 检查是否包含图片内容
     for (let i = 0; i < types.length; i++) {
-      if (types[i].startsWith('image/')) {
+      if (types[i].startsWith('image/') || types[i] === 'Files') {
         // 阻止粘贴图片内容
         event.preventDefault()
         return
@@ -187,7 +187,7 @@ function insertTextAtCursor(text: string) {
 onMounted(() => {
   tributeEl.value = containerEl.value
 
-  if (props.values?.length) {
+  if (props.values) {
     attachTribute(tributeEl, props.values)
   }
 })
@@ -200,7 +200,7 @@ onBeforeUnmount(() => {
 watch(
   () => props.values,
   async (newValues) => {
-    if (tributeEl.value?.tributeInstance && newValues?.length) {
+    if (tributeEl.value?.tributeInstance && newValues) {
       await nextTick()
       detachTribute(tributeEl)
       await nextTick()
