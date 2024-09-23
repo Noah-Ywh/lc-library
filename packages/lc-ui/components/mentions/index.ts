@@ -3,7 +3,7 @@ import Mentions from './src/mentions.vue'
 
 import './style/css'
 
-export type { LMentionsOptions } from './src/mentions'
+export type { LMentionsValues } from './src/mentions'
 
 export const MentionsPlugin: Plugin = {
   install(app: App) {

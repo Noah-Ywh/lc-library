@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, unref, onMounted, onBeforeUnmount, watch, nextTick } from 'vue'
+import { ref, onMounted, onBeforeUnmount, watch, nextTick } from 'vue'
 
 import Tribute from 'tributejs'
 
@@ -7,7 +7,7 @@ import { mentionsProps, mentionsEmits, defaultOptions } from './mentions'
 import { useNamespace } from '@noahyu/lc-helpers'
 
 import type { Ref } from 'vue'
-import type { LMentionsOptions, LMentionsValues } from './mentions'
+import type { LMentionsValues } from './mentions'
 
 export interface TributeElement extends HTMLElement {
   tributeInstance?: Tribute<object>
@@ -26,12 +26,14 @@ const tribute = ref<Tribute<LMentionsValues>>()
 /** 加载 Tribute
  * @
  * -------------------------- */
-function attachTribute(tributeDom: Ref<TributeElement | undefined>, options: LMentionsOptions) {
+function attachTribute(tributeDom: Ref<TributeElement | undefined>, values: LMentionsValues[]) {
   defaultOptions.menuContainer = root.value
 
   const tributeOptions = {
     ...defaultOptions,
-    ...unref(options),
+    values,
+    lookup: props.lookup,
+    fillAttr: props.fillAttr,
     noMatchTemplate: () => props.noMatchTip,
   }
 
@@ -185,8 +187,8 @@ function insertTextAtCursor(text: string) {
 onMounted(() => {
   tributeEl.value = containerEl.value
 
-  if (props.options) {
-    attachTribute(tributeEl, props.options)
+  if (props.values?.length) {
+    attachTribute(tributeEl, props.values)
   }
 })
 
@@ -196,13 +198,13 @@ onBeforeUnmount(() => {
 
 /** 监听 options 更新，更新后重新加载 */
 watch(
-  () => props.options,
-  async (newOptions) => {
-    if (tributeEl.value?.tributeInstance && newOptions) {
+  () => props.values,
+  async (newValues) => {
+    if (tributeEl.value?.tributeInstance && newValues?.length) {
       await nextTick()
       detachTribute(tributeEl)
       await nextTick()
-      attachTribute(tributeEl, { ...newOptions })
+      attachTribute(tributeEl, newValues)
     }
   },
   { deep: true },

@@ -1,6 +1,5 @@
 import { definePropType, sizePropType } from '../../../utils'
 
-import type { Ref } from 'vue'
 import type { TributeCollection } from 'tributejs'
 
 /** 提及列表 */
@@ -14,13 +13,22 @@ export type LMentionsValues = {
   /** 单击链接 */
   link?: string
 }
-/** 配置列表 */
-export type LMentionsOptions = { values: LMentionsValues[] } | Ref<{ values: LMentionsValues[] }>
 
 export const mentionsProps = {
-  options: {
-    type: definePropType<LMentionsOptions>(Object),
+  /** 提及列表 */
+  values: {
+    type: definePropType<LMentionsValues[]>(Array),
     required: true,
+  },
+  /** 在对象中搜索的 key */
+  lookup: {
+    type: definePropType<'label' | 'value'>(String),
+    default: 'value',
+  },
+  /** 插入到内容的 key */
+  fillAttr: {
+    type: definePropType<'label' | 'value'>(String),
+    default: 'label',
   },
   height: {
     typs: sizePropType(String),
