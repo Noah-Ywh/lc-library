@@ -140,15 +140,45 @@ function onInput() {
 function onPaste(event: ClipboardEvent) {
   if (!props.pasteImg) {
     const clipboardData = event.clipboardData
-    const items = clipboardData?.items || []
+    const types = clipboardData?.types || []
 
-    for (let i = 0; i < items.length; i++) {
-      if (items[i].kind !== 'string') {
-        // 阻止粘贴非文本内容
+    // 检查是否包含图片内容
+    for (let i = 0; i < types.length; i++) {
+      if (types[i].startsWith('image/')) {
+        // 阻止粘贴图片内容
         event.preventDefault()
         return
       }
     }
+
+    // 如果只包含文本内容，允许粘贴
+    const text = clipboardData?.getData('text/plain')
+    if (text) {
+      // 将文本插入到目标元素中
+      insertTextAtCursor(text)
+      event.preventDefault()
+    }
+  }
+}
+
+/** 在光标位置插入文本
+ * @param {string} text 要插入的文本
+ * @
+ * -------------------------- */
+function insertTextAtCursor(text: string) {
+  const selection = window.getSelection()
+  if (selection?.rangeCount) {
+    const range = selection.getRangeAt(0)
+    range.deleteContents()
+
+    const textNode = document.createTextNode(text)
+    range.insertNode(textNode)
+
+    // 移动光标到插入文本的末尾
+    range.setStartAfter(textNode)
+    range.setEndAfter(textNode)
+    selection.removeAllRanges()
+    selection.addRange(range)
   }
 }
 
