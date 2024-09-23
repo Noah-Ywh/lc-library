@@ -30,6 +30,7 @@ export const mentionsProps = {
     type: definePropType<'label' | 'value'>(String),
     default: 'label',
   },
+  /** 输入框高度 */
   height: {
     typs: sizePropType(String),
     default: '',
@@ -38,10 +39,6 @@ export const mentionsProps = {
   debounce: {
     typs: Number,
     default: 0,
-  },
-  noMatchTip: {
-    type: String,
-    default: '未找到匹配数据',
   },
   /** 允许粘贴为图片 */
   pasteImg: {

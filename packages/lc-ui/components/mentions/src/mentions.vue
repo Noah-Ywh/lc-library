@@ -34,7 +34,7 @@ function attachTribute(tributeDom: Ref<TributeElement | undefined>, values: LMen
     values,
     lookup: props.lookup,
     fillAttr: props.fillAttr,
-    noMatchTemplate: () => props.noMatchTip,
+    noMatchTemplate: () => '',
   }
 
   if (!tributeDom.value) {
