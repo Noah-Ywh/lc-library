@@ -2,17 +2,15 @@
 import { ref } from 'vue'
 import { LMentions } from '@noahyu/lc-ui/client'
 
-const options = ref({
-  values: [
-    {
-      label: 'noah',
-      value: '1',
-      link: 'https://github.com/Noah-Ywh/lc-library',
-      avatar: 'https://lc.ytarc.com/logo.jpg',
-    },
-    { label: '刘某', value: '2' },
-  ],
-})
+const values = [
+  {
+    label: 'noah',
+    value: '1',
+    link: 'https://github.com/Noah-Ywh/lc-library',
+    avatar: 'https://lc.ytarc.com/logo.jpg',
+  },
+  { label: '刘某', value: '2' },
+]
 const mentionsRef = ref(null)
 
 function showMentions() {
@@ -28,29 +26,27 @@ function showMentions() {
 
 ```vue
 <script setup lang="ts">
-import { LMentions } from '@noahyu/lc-ui'
-import type { LMentionsOptions } from '@noahyu/lc-ui'
+import { LMentions } from '@noahyu/lc-ui/client'
+import type { LMentionsValues } from '@noahyu/lc-ui/client'
 
-const options = ref<LMentionsOptions>({
-  values: [
-    {
-      label: 'noah',
-      value: '1',
-      link: 'https://github.com/Noah-Ywh/lc-library',
-      avatar: 'https://lc.ytarc.com/logo.jpg',
-    },
-    { label: '刘某', value: '2' },
-  ],
-})
+const values: LMentionsOptions[] = [
+  {
+    label: 'noah',
+    value: '1',
+    link: 'https://github.com/Noah-Ywh/lc-library',
+    avatar: 'https://lc.ytarc.com/logo.jpg',
+  },
+  { label: '刘某', value: '2' },
+]
 </script>
 
 <template>
-  <LMentions :options="options" />
+  <LMentions :values="values" />
 </template>
 ```
 
 <Preview>
- <LMentions :options="options" />
+ <LMentions :values="values" />
 </Preview>
 
 ## 编程方式触发
@@ -58,19 +54,17 @@ const options = ref<LMentionsOptions>({
 ```vue
 <script setup lang="ts">
 import { LMentions } from '@noahyu/lc-ui'
-import type { LMentionsOptions } from '@noahyu/lc-ui'
+import type { LMentionsValues } from '@noahyu/lc-ui'
 
-const options = ref<LMentionsOptions>({
-  values: [
-    {
-      label: 'noah',
-      value: '1',
-      link: 'https://github.com/Noah-Ywh/lc-library',
-      avatar: 'https://lc.ytarc.com/logo.jpg',
-    },
-    { label: '刘某', value: '2' },
-  ],
-})
+const values: LMentionsValues[] = [
+  {
+    label: 'noah',
+    value: '1',
+    link: 'https://github.com/Noah-Ywh/lc-library',
+    avatar: 'https://lc.ytarc.com/logo.jpg',
+  },
+  { label: '刘某', value: '2' },
+]
 
 const mentionsRef = ref<InstanceType<typeof LMentions>>()
 
@@ -80,7 +74,7 @@ function showMentions() {
 </script>
 
 <template>
-  <LMentions ref="mentionsRef" :options="options" />
+  <LMentions ref="mentionsRef" :values="values" />
   <button @mousedown.prevent="showMentions">点击我</button>
 </template>
 ```
@@ -89,7 +83,7 @@ function showMentions() {
 > 必须使用 `mousedown` 事件并阻止事件默认行为
 
 <Preview>
-  <LMentions ref="mentionsRef" :options="options" />
+  <LMentions ref="mentionsRef" :values="values" />
   <button @mousedown.prevent="showMentions">点击我</button>
 </Preview>
 
@@ -97,14 +91,14 @@ function showMentions() {
 
 ### Props
 
-| Prop       |        Type         |     Default      | Required |         Description          |
-| ---------- | :-----------------: | :--------------: | :------: | :--------------------------: |
-| values     | `LMentionsValues[]` |                  |  `true`  |           提及列表           |
-| lookup     | `'value'\|'label'`  |     `value`      | `false`  |      在对象中搜索的 key      |
-| fillAttr   | `'value'\|'label'`  |     `label`      | `false`  |       插入到内容的 key       |
-| height     |      `string`       |                  | `false`  |          编辑器高度          |
-| debounce   |      `number`       |       `0`        | `false`  | 防抖时间，如果不提供则不防抖 |
-| pasteImg   |      `boolean`      |      `true`      | `false`  |  允许粘贴为base64格式的图片  |
+| Prop     |        Type         | Default | Required |         Description          |
+| -------- | :-----------------: | :-----: | :------: | :--------------------------: |
+| values   | `LMentionsValues[]` |         |  `true`  |           提及列表           |
+| lookup   | `'value'\|'label'`  | `value` | `false`  |      在对象中搜索的 key      |
+| fillAttr | `'value'\|'label'`  | `label` | `false`  |       插入到内容的 key       |
+| height   |      `string`       |         | `false`  |          编辑器高度          |
+| debounce |      `number`       |   `0`   | `false`  | 防抖时间，如果不提供则不防抖 |
+| pasteImg |      `boolean`      | `true`  | `false`  |  允许粘贴为base64格式的图片  |
 
 ### Emits
 
