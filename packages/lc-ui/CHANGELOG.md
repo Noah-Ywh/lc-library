@@ -1,3 +1,7 @@
+## [1.6.9](https://github.com/Noah-Ywh/lc-library/compare/v1.6.8...v1.6.9) (2024-10-10)
+
+
+
 ## [1.6.8](https://github.com/Noah-Ywh/lc-library/compare/v1.6.7...v1.6.8) (2024-10-10)
 
 

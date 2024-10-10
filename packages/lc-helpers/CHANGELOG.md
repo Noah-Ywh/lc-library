@@ -1,3 +1,12 @@
+## [1.6.9](https://github.com/Noah-Ywh/lc-library/compare/v1.6.8...v1.6.9) (2024-10-10)
+
+
+### 🐛Bug Fixes
+
+* **Konva Slot:** 可传递 Vue 全局上下文到子组件 ([4bfde1f](https://github.com/Noah-Ywh/lc-library/commit/4bfde1f7a36b3b2772d04d1d48ee587581c4dc3f))
+
+
+
 ## [1.6.8](https://github.com/Noah-Ywh/lc-library/compare/v1.6.7...v1.6.8) (2024-10-10)
 
 
