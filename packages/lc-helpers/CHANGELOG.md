@@ -1,3 +1,17 @@
+## [1.6.8](https://github.com/Noah-Ywh/lc-library/compare/v1.6.7...v1.6.8) (2024-10-10)
+
+
+### 🔨Code Refactoring
+
+* **Konva Slot:** 使用 `h` 替换 `createApp`，以避免创建新的 Vue 实例 ([9011017](https://github.com/Noah-Ywh/lc-library/commit/9011017fcbbbc3398ef3e0bd86eaa442941e4222))
+
+
+### 🛠️Chore
+
+* 更新依赖 ([e4edc78](https://github.com/Noah-Ywh/lc-library/commit/e4edc78efadc3e85092822f618a3198961990288))
+
+
+
 ## [1.6.7](https://github.com/Noah-Ywh/lc-library/compare/v1.6.6...v1.6.7) (2024-09-23)
 
 
@@ -56,8 +70,8 @@
 
 ### 🐛Bug Fixes
 
-* **lc-helpers:** 处理入参的边界情况 ([e715fbd](https://github.com/Noah-Ywh/lc-library/commit/e715fbd2f2910dbfe81f17e0464cf7c6ea803a6c))
 * **lc-helpers:** 单独导出 konva 相关类 ([6ce4443](https://github.com/Noah-Ywh/lc-library/commit/6ce444384ab08966da9ea047d9f78356c01b208d))
+* **lc-helpers:** 处理入参的边界情况 ([e715fbd](https://github.com/Noah-Ywh/lc-library/commit/e715fbd2f2910dbfe81f17e0464cf7c6ea803a6c))
 * **lc-helpers:** 约束入参类型 ([5ff58a3](https://github.com/Noah-Ywh/lc-library/commit/5ff58a31562e60022cf6a3bf01a11f360def50d5))
 
 
@@ -68,13 +82,13 @@
 
 ### 🛠️Chore
 
+* **eslint:** eslint 更新至 v9 ([2913654](https://github.com/Noah-Ywh/lc-library/commit/2913654ccc6923f24e3b2056c03eaec1e97317e2))
+* **package:** update deps ([d203673](https://github.com/Noah-Ywh/lc-library/commit/d20367378a8231e4576f9004644107faf48ed954))
+* **package:** 新增 konva ([79b730d](https://github.com/Noah-Ywh/lc-library/commit/79b730df7ad0a1a5fce692e643899fda7f12d801))
+* **package:** 更新依赖 ([5986025](https://github.com/Noah-Ywh/lc-library/commit/598602578bf901c0d4332f55f148131862f48cb7))
+* update deps ([bb2d8da](https://github.com/Noah-Ywh/lc-library/commit/bb2d8dabfa8f99fa79c578bff339bc7c508ff907))
 * 更新描述 ([7988feb](https://github.com/Noah-Ywh/lc-library/commit/7988feb10e3b06d7689a150458587e156ab5f4b8))
 * 更新配置 ([a310330](https://github.com/Noah-Ywh/lc-library/commit/a310330642435973d6eea57ccec1228455f64127))
-* **eslint:** eslint 更新至 v9 ([2913654](https://github.com/Noah-Ywh/lc-library/commit/2913654ccc6923f24e3b2056c03eaec1e97317e2))
-* **package:** 更新依赖 ([5986025](https://github.com/Noah-Ywh/lc-library/commit/598602578bf901c0d4332f55f148131862f48cb7))
-* **package:** 新增 konva ([79b730d](https://github.com/Noah-Ywh/lc-library/commit/79b730df7ad0a1a5fce692e643899fda7f12d801))
-* **package:** update deps ([d203673](https://github.com/Noah-Ywh/lc-library/commit/d20367378a8231e4576f9004644107faf48ed954))
-* update deps ([bb2d8da](https://github.com/Noah-Ywh/lc-library/commit/bb2d8dabfa8f99fa79c578bff339bc7c508ff907))
 
 
 ### 🏗️Build System

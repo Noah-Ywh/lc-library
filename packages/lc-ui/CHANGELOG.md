@@ -1,3 +1,12 @@
+## [1.6.8](https://github.com/Noah-Ywh/lc-library/compare/v1.6.7...v1.6.8) (2024-10-10)
+
+
+### 🛠️Chore
+
+* 更新依赖 ([e4edc78](https://github.com/Noah-Ywh/lc-library/commit/e4edc78efadc3e85092822f618a3198961990288))
+
+
+
 ## [1.6.7](https://github.com/Noah-Ywh/lc-library/compare/v1.6.6...v1.6.7) (2024-09-23)
 
 
@@ -63,11 +72,11 @@
 
 ### 🛠️Chore
 
-* 更新描述 ([7988feb](https://github.com/Noah-Ywh/lc-library/commit/7988feb10e3b06d7689a150458587e156ab5f4b8))
 * **eslint:** eslint 更新至 v9 ([2913654](https://github.com/Noah-Ywh/lc-library/commit/2913654ccc6923f24e3b2056c03eaec1e97317e2))
-* **package:** 更新依赖 ([5986025](https://github.com/Noah-Ywh/lc-library/commit/598602578bf901c0d4332f55f148131862f48cb7))
 * **package:** update deps ([d203673](https://github.com/Noah-Ywh/lc-library/commit/d20367378a8231e4576f9004644107faf48ed954))
+* **package:** 更新依赖 ([5986025](https://github.com/Noah-Ywh/lc-library/commit/598602578bf901c0d4332f55f148131862f48cb7))
 * update deps ([bb2d8da](https://github.com/Noah-Ywh/lc-library/commit/bb2d8dabfa8f99fa79c578bff339bc7c508ff907))
+* 更新描述 ([7988feb](https://github.com/Noah-Ywh/lc-library/commit/7988feb10e3b06d7689a150458587e156ab5f4b8))
 
 
 
@@ -104,8 +113,8 @@
 
 ### 🐛Bug Fixes
 
-* 优化 html 类名的命名标准 ([a46dcd3](https://github.com/Noah-Ywh/lc-library/commit/a46dcd3f49a4e379da51cf1bb589d0cd3005434b))
 * **style:** normalize 样式通过类引用，减少样式冲突 ([d5754d7](https://github.com/Noah-Ywh/lc-library/commit/d5754d7d0445478f9fa8c74c40c1d93a8044d18f))
+* 优化 html 类名的命名标准 ([a46dcd3](https://github.com/Noah-Ywh/lc-library/commit/a46dcd3f49a4e379da51cf1bb589d0cd3005434b))
 
 
 
