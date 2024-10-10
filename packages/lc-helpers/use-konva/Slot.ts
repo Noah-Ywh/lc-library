@@ -1,8 +1,8 @@
-import { createApp } from 'vue'
+import { h, render, toRefs } from 'vue'
 
 import Konva from 'konva'
 
-import type { App, Component } from 'vue'
+import type { Component } from 'vue'
 
 export class Slot extends Konva.Group {
   #stage: Konva.Stage
@@ -11,16 +11,13 @@ export class Slot extends Konva.Group {
   #containerId: string
 
   #slot: HTMLElement | null = null
-  #provideKey: string
-  #animationFrameId: number | null = null
 
-  #app: App<Element> | undefined
+  #animationFrameId: number | null = null
 
   constructor(config: Konva.GroupConfig, stage: Konva.Stage) {
     super(config)
 
     this.#stage = stage
-    this.#provideKey = 'KonvaSlotProvide'
 
     this.#containerId = 'lc-helpers-konva-slot'
     this.#container = document.getElementById(this.#containerId)
@@ -59,13 +56,8 @@ export class Slot extends Konva.Group {
   }
 
   /** 挂载组件 */
-  public mount<P>(componentVue: Component, args?: P) {
+  public mount(componentVue: Component, props?: object) {
     const { x, y } = this.absolutePosition()
-
-    const props = {
-      top: y,
-      left: x,
-    }
 
     if (!this.#slot) {
       this.#slot = document.createElement('div')
@@ -76,20 +68,16 @@ export class Slot extends Konva.Group {
 
       this.#container?.appendChild(this.#slot)
 
-      this.#app = createApp(componentVue, props)
+      const vNode = h(componentVue, props ? toRefs(props) : null)
 
-      this.#app.provide(`${this.#provideKey}`, args)
-
-      this.#app.mount(this.#slot)
+      render(vNode, this.#slot)
     }
   }
 
   /** 移除组件 */
   public unmount() {
-    this.#app?.unmount()
     if (this.#slot) {
-      this.#container?.removeChild(this.#slot)
-      this.#slot = null
+      render(null, this.#slot)
     }
   }
 
@@ -99,11 +87,8 @@ export class Slot extends Konva.Group {
     this.#stage.off('wheel', this.#dragmove)
     this.off('dragmove', this.#dragmove)
 
-    this.#app?.unmount()
-
     if (this.#slot) {
-      this.#container?.removeChild(this.#slot)
-      this.#slot = null
+      render(null, this.#slot)
     }
 
     super.destroy()
