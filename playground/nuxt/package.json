@@ -15,10 +15,10 @@
     "@primevue/nuxt-module": "^4.1.0",
     "@primevue/themes": "^4.1.0",
     "@vitejs/plugin-vue-jsx": "^4.0.1",
-    "nuxt": "^3.13.1",
+    "nuxt": "^3.13.2",
     "primevue": "^4.1.0",
-    "sass": "^1.78.0",
-    "vue": "^3.5.3"
+    "sass": "^1.79.4",
+    "vue": "^3.5.11"
   },
   "browserslist": [
     "last 2 version",
