@@ -4,7 +4,7 @@
   "private": true,
   "description": "基于 Nuxt3 的预览环境",
   "scripts": {
-    "dev": "nuxi dev",
+    "dev": "nuxi dev --host",
     "build:test": "nuxi build",
     "preview": "nuxi preview",
     "nuxt-prepare": "nuxt prepare"

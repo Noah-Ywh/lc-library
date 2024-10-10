@@ -4,7 +4,7 @@
   "private": true,
   "description": "基于 Vue3 的预览环境",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build:test": "vue-tsc --noEmit && cross-env VUE_APP_MODE=test vite build"
   },
   "devDependencies": {
