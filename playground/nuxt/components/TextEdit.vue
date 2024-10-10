@@ -1,9 +1,11 @@
 <script setup lang="ts">
-const text = inject('KonvaSlotProps')
+const props = defineProps<{
+  text: Ref<string>
+}>()
 </script>
 
 <template>
-  <div>{{ text }}</div>
+  <Button>{{ props.text }}</Button>
 </template>
 
 <style lang="scss" scoped></style>

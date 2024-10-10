@@ -10,7 +10,9 @@ const stage = ref<Konva.Stage>()
 /** 图层 */
 const layer = ref<Konva.Layer>()
 
-const test = ref('测试插槽')
+const props = ref({
+  text: '插槽内容',
+})
 const inputText = ref('测试输入')
 
 onMounted(() => {
@@ -61,7 +63,7 @@ onMounted(() => {
     )
 
     slot.add(input)
-    slot.mount(TextEditVue, test)
+    slot.mount(TextEditVue, props.value)
 
     layer.value.add(slot)
     layer.value?.draw()
@@ -71,6 +73,7 @@ onMounted(() => {
 
 <template>
   <div class="lc-helpers">
+    <Button @click="props.text = '更新props'">更改插槽</Button>
     <div ref="stageRef" class="canvas-container"></div>
   </div>
 </template>
