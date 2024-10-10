@@ -55,9 +55,9 @@ slot.mount(MyComponent)
 slot.unmount()
 ```
 
-## Props
+## 响应式对象
 
-`mount` 第二个参数可接受一个响应式对象，并为源对象上可以枚举的属性创建 ref
+`mount` 第二个参数可传递一个响应式对象，并为源对象上可以枚举的属性创建 ref
 
 ```ts{3-5,34}
 import MyComponent from '@components/my-component.vue'
@@ -110,6 +110,57 @@ const props = defineProps<{
 </template>
 
 <style lang="scss" scoped></style>
+```
+
+## Vue 全局上下文
+
+某些情况下，你可能需要手动传递 Vue 全局上下文（如子组件无法正常使用provide/inject、全局组件等）
+
+你可以从 Vue 应用中获取 `appContext` 并传递给 `mount` 的第三个参数
+
+::: tip 注意
+当你需要传递全局上下文时，如果没有需要传递的响应式对象，请提供 `null` 作为 `mount` 的第二个参数
+:::
+
+```ts{1,5,38}
+import { getCurrentInstance } from 'vue'
+import MyComponent from '@components/my-component.vue'
+
+// 获取 Vue 实例的 appContext
+const appContext = getCurrentInstance().appContext
+
+const props = ref({
+  text: '插槽内容',
+})
+
+const stage = new Konva.Stage({
+  container: '#container',
+})
+
+const rect = new Konva.Rect({
+  x: 20,
+  y: 20,
+  width: 100,
+  height: 50,
+  fill: 'green',
+  stroke: 'black',
+  strokeWidth: 4,
+})
+
+const slot = new Slot(
+  {
+    x: 50,
+    y: 100,
+    width: 200,
+    height: 24,
+    draggable: true,
+    fill: 'blue',
+  },
+  stage,
+)
+
+slot.add(rect)
+slot.mount(TextEditVue, props.value, appContext)
 ```
 
 ## 类型声明
