@@ -2,7 +2,7 @@ import { h, render, toRefs } from 'vue'
 
 import Konva from 'konva'
 
-import type { Component } from 'vue'
+import type { Component, AppContext } from 'vue'
 
 export class Slot extends Konva.Group {
   #stage: Konva.Stage
@@ -56,7 +56,7 @@ export class Slot extends Konva.Group {
   }
 
   /** 挂载组件 */
-  public mount(componentVue: Component, props?: object) {
+  public mount(componentVue: Component, props?: object | null, appContext?: AppContext) {
     const { x, y } = this.absolutePosition()
 
     if (!this.#slot) {
@@ -69,6 +69,10 @@ export class Slot extends Konva.Group {
       this.#container?.appendChild(this.#slot)
 
       const vNode = h(componentVue, props ? toRefs(props) : null)
+
+      if (appContext) {
+        vNode.appContext = appContext
+      }
 
       render(vNode, this.#slot)
     }
