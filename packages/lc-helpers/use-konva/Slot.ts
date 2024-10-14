@@ -37,6 +37,7 @@ export class Slot extends Konva.Group {
     this.on('dragmove', this.#dragmove)
 
     this.mount = this.mount.bind(this)
+    this.update = this.update.bind(this)
     this.destroy = this.destroy.bind(this)
   }
 
@@ -75,6 +76,15 @@ export class Slot extends Konva.Group {
       }
 
       render(vNode, this.#slot)
+    }
+  }
+
+  /** 更新 */
+  public update() {
+    if (this.#slot) {
+      const { x, y } = this.absolutePosition()
+      this.#slot.style.left = `${x}px`
+      this.#slot.style.top = `${y}px`
     }
   }
 
