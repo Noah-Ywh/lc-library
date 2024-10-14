@@ -55,6 +55,10 @@ slot.mount(MyComponent)
 slot.unmount()
 ```
 
+::: warning 注意
+如果是 `Slot` 容器内嵌套 `Slot`，子 `Slot` 必须添加到父 `Slot` 后再挂载组件
+:::
+
 ## 响应式对象
 
 `mount` 第二个参数可传递一个响应式对象，并为源对象上可以枚举的属性创建 ref
@@ -161,6 +165,14 @@ const slot = new Slot(
 
 slot.add(rect)
 slot.mount(TextEditVue, props.value, appContext)
+```
+
+## 更新组件
+
+某些情况下你可能需要手动更新，比如你手动修改图形坐标，组件位置并不会随之改变，是因为手动修改坐标不会触发 `dragmove` 事件，这时候你就可以调用 `update` 方法更新组件坐标
+
+```ts
+slot.update()
 ```
 
 ## 类型声明
