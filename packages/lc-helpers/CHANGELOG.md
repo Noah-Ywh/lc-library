@@ -1,3 +1,12 @@
+## [1.6.10](https://github.com/Noah-Ywh/lc-library/compare/v1.6.9...v1.6.10) (2024-10-14)
+
+
+### 🐛Bug Fixes
+
+* **Konva Slot:** 提供 `update` 方法去手动更新组件 ([3f8fc1b](https://github.com/Noah-Ywh/lc-library/commit/3f8fc1b015d2750fa69588c0f934307f09b49c7a))
+
+
+
 ## [1.6.9](https://github.com/Noah-Ywh/lc-library/compare/v1.6.8...v1.6.9) (2024-10-10)
 
 
