@@ -167,13 +167,12 @@ slot.add(rect)
 slot.mount(TextEditVue, props.value, appContext)
 ```
 
-## 更新组件
+## 更新坐标
 
-某些情况下你可能需要手动更新，比如你手动修改图形坐标，组件位置并不会随之改变，是因为手动修改坐标不会触发 `dragmove` 事件，这时候你就可以调用 `update` 方法更新组件坐标
+某些情况下你可能需要手动更新，比如你使用 `position` 手动修改图形坐标、舞台坐标等，组件位置并不会随之改变，是因为手动修改坐标不会触发 `dragmove` 事件。解决方案有：
 
-```ts
-slot.update()
-```
+- 调用 `slot.update()` 方法更新组件坐标
+- 调用 `stage.fire('dragmove')` 手动触发 `dragmove` 事件
 
 ## 类型声明
 
