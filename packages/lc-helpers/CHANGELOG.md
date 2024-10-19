@@ -1,3 +1,12 @@
+## [1.6.11](https://github.com/Noah-Ywh/lc-library/compare/v1.6.10...v1.6.11) (2024-10-19)
+
+
+### 🐛Bug Fixes
+
+* **Konva Slot:** 移除组件的同时移除挂载节点 ([d35ab1c](https://github.com/Noah-Ywh/lc-library/commit/d35ab1c862aaf4971fe3b2229a6cd90003e4f673))
+
+
+
 ## [1.6.10](https://github.com/Noah-Ywh/lc-library/compare/v1.6.9...v1.6.10) (2024-10-14)
 
 
