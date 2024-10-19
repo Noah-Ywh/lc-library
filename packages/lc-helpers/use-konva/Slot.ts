@@ -92,6 +92,8 @@ export class Slot extends Konva.Group {
   public unmount() {
     if (this.#slot) {
       render(null, this.#slot)
+      this.#container?.removeChild(this.#slot)
+      this.#slot = null
     }
   }
 
@@ -103,6 +105,8 @@ export class Slot extends Konva.Group {
 
     if (this.#slot) {
       render(null, this.#slot)
+      this.#container?.removeChild(this.#slot)
+      this.#slot = null
     }
 
     super.destroy()
