@@ -25,10 +25,10 @@
     "@noahyu/lc-helpers": "workspace:*",
     "@noahyu/lc-ui": "workspace:*",
     "@vue/repl": "^4.4.2",
-    "chart.js": "^4.4.4",
-    "vue": "^3.5.11"
+    "chart.js": "^4.4.5",
+    "vue": "^3.5.12"
   },
   "dependencies": {
-    "vitepress": "^1.4.0"
+    "vitepress": "^1.4.1"
   }
 }

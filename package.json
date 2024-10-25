@@ -17,7 +17,7 @@
     "vitest": "vitest",
     "vitest:c": "vitest run --coverage",
     "vitest:u": "vitest --coverage --ui",
-    "createVue": "node -r @esbuild-kit/cjs-loader ./scripts/create-component.js",
+    "createVue": "node -r tsx/cjs ./scripts/create-component.js",
     "prepare": "husky install && pnpm --filter playground-nuxt nuxt-prepare",
     "postinstall": "pnpm build"
   },
@@ -37,17 +37,16 @@
     "@changesets/cli": "^2.27.9",
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
-    "@esbuild-kit/cjs-loader": "^2.4.4",
-    "@noahyu/conventional-changelog-base": "^1.0.1",
+    "@noahyu/conventional-changelog-base": "^1.1.0",
     "@noahyu/eslint-config-vue": "^1.4.2",
     "@noahyu/lc-helpers": "workspace:*",
     "@noahyu/lc-ui": "workspace:*",
-    "@types/node": "22.7.5",
+    "@types/node": "22.8.0",
     "@vitejs/plugin-vue": "^5.1.4",
     "@vitejs/plugin-vue-jsx": "^4.0.1",
-    "@vitest/coverage-v8": "^2.1.2",
-    "@vitest/ui": "^2.1.2",
-    "@vue/compiler-dom": "3.5.11",
+    "@vitest/coverage-v8": "^2.1.3",
+    "@vitest/ui": "^2.1.3",
+    "@vue/compiler-dom": "3.5.12",
     "@vue/test-utils": "^2.4.6",
     "c8": "^10.1.2",
     "chalk": "^5.3.0",
@@ -59,10 +58,11 @@
     "jsdom": "^25.0.1",
     "lint-staged": "^15.2.10",
     "rimraf": "^6.0.1",
+    "tsx": "^4.19.1",
     "typescript": "^5.6.3",
-    "vite": "^5.4.8",
-    "vitest": "^2.1.2",
-    "vue": "^3.5.11"
+    "vite": "^5.4.10",
+    "vitest": "^2.1.3",
+    "vue": "^3.5.12"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx,vue}": "eslint --fix"
@@ -72,5 +72,5 @@
       "path": "./node_modules/cz-git"
     }
   },
-  "packageManager": "pnpm@9.12.1"
+  "packageManager": "pnpm@9.12.2"
 }
