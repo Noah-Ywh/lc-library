@@ -11,6 +11,7 @@ const CamelCaseName = (name || '')
   .split('-')
   .map((str) => str.slice(0, 1).toUpperCase() + str.slice(1))
   .join('')
+const camelCaseName = CamelCaseName.charAt(0).toLowerCase() + CamelCaseName.slice(1)
 
 const formatCode = (code, parser = 'typescript') =>
   format(code, {
@@ -64,10 +65,10 @@ const createSRC = async () => {
   const sfc = await formatCode(
     `
     <script setup lang="ts">
-      import { ${CamelCaseName}Props } from './${name}'
+      import { ${camelCaseName}Props } from './${name}'
       import { useNamespace } from '@noahyu/lc-helpers'
 
-      const props = defineProps(${CamelCaseName}Props)
+      const props = defineProps(${camelCaseName}Props)
 
       const { bem, is } = useNamespace('${name}')
     </script>
@@ -80,8 +81,8 @@ const createSRC = async () => {
 
   const ts = await formatCode(
     `
-    export const ${CamelCaseName}Props = {}
-    export const ${CamelCaseName}Emits = {}`,
+    export const ${camelCaseName}Props = {}
+    export const ${camelCaseName}Emits = {}`,
     'typescript',
   )
 
