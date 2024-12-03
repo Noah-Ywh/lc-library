@@ -12,13 +12,13 @@
   "devDependencies": {
     "@noahyu/lc-helpers": "workspace:*",
     "@noahyu/lc-ui": "workspace:*",
-    "@primevue/nuxt-module": "^4.1.1",
-    "@primevue/themes": "^4.1.1",
-    "@vitejs/plugin-vue-jsx": "^4.0.1",
-    "nuxt": "^3.13.2",
-    "primevue": "^4.1.1",
-    "sass": "^1.80.4",
-    "vue": "^3.5.12"
+    "@primevue/nuxt-module": "^4.2.4",
+    "@primevue/themes": "^4.2.4",
+    "@vitejs/plugin-vue-jsx": "^4.1.1",
+    "nuxt": "^3.14.1592",
+    "primevue": "^4.2.4",
+    "sass": "^1.81.1",
+    "vue": "^3.5.13"
   },
   "browserslist": [
     "last 2 version",
