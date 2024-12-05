@@ -13,7 +13,6 @@ const layer = ref<Konva.Layer>()
 const props = ref({
   text: '插槽内容',
 })
-const inputText = ref('测试输入')
 
 onMounted(() => {
   if (stageRef.value) {
@@ -32,27 +31,32 @@ onMounted(() => {
 
     stage.value?.add(layer.value)
 
-    const input = new Input(
-      {
-        x: 0,
-        y: 0,
-        width: 200,
-        height: 24,
-        fill: 'red',
-        fontSize: 18,
-        align: 'center',
-        verticalAlign: 'middle',
-        fontFamily: 'Calibri',
-        color: 'white',
-        ellipsis: true,
-        wrap: 'none',
+    const input = new Input({
+      x: 0,
+      y: 25,
+      width: 200,
+      text: '输入框',
+      fill: 'red',
+      fontSize: 14,
+      lineHeight: 1.4,
+      align: 'left',
+      verticalAlign: 'middle',
+      fontFamily: 'Calibri',
+      ellipsis: true,
+      wrap: 'none',
+      backgroundColor: 'yellow',
+      borderColor: 'black',
+      blur(text) {
+        const { width } = input.measureSize(text)
+        input.width(width)
+
+        props.value.text = text
       },
-      inputText,
-    )
+    })
 
     const slot = new Slot(
       {
-        x: 50,
+        x: 0,
         y: 100,
         width: 200,
         height: 24,
@@ -62,10 +66,9 @@ onMounted(() => {
       stage.value,
     )
 
-    slot.add(input)
     slot.mount(TextEditVue, props.value)
 
-    layer.value.add(slot)
+    layer.value.add(slot, input)
     layer.value?.draw()
   }
 })
@@ -73,7 +76,6 @@ onMounted(() => {
 
 <template>
   <div class="lc-helpers">
-    <Button @click="props.text = '更新props'">更改插槽</Button>
     <div ref="stageRef" class="canvas-container"></div>
   </div>
 </template>

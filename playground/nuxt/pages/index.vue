@@ -1,10 +1,6 @@
 <script setup lang="ts">
 const components = [
   {
-    name: '甘特图',
-    link: 'ganttChart',
-  },
-  {
     name: '头部菜单',
     link: 'headerMenu',
   },
