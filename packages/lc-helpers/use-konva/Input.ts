@@ -1,92 +1,31 @@
 import Konva from 'konva'
-import { watch } from 'vue'
 
-import type { Ref } from 'vue'
-
-type InputConfigGroup = Pick<
-  Konva.GroupConfig,
-  | 'x'
-  | 'y'
-  | 'width'
-  | 'height'
-  | 'visible'
-  | 'id'
-  | 'name'
-  | 'opacity'
-  | 'draggable'
-  | 'dragDistance'
-  | 'dragBoundFunc'
->
-
-type InputConfigRect = Pick<
-  Konva.RectConfig,
-  | 'cornerRadius'
-  | 'fill'
-  | 'stroke'
-  | 'strokeWidth'
-  | 'shadowColor'
-  | 'shadowBlur'
-  | 'shadowOffset'
-  | 'shadowOffsetX'
-  | 'shadowOffsetY'
-  | 'shadowOpacity'
-  | 'shadowEnabled'
->
-
-type InputConfigText = Pick<
-  Konva.TextConfig,
-  'fontFamily' | 'fontSize' | 'fontStyle' | 'text' | 'align' | 'verticalAlign' | 'ellipsis' | 'wrap'
-> & {
-  color?: string
+export type InputConfig = Konva.TextConfig & {
+  /** 输入框背景色 */
+  backgroundColor?: string
+  /** 输入框边框颜色 */
+  borderColor?: string
+  /** 失焦事件 */
+  blur?: (text: string) => void
 }
 
-export type InputConfig = InputConfigGroup & InputConfigRect & InputConfigText
-
-export class Input extends Konva.Group {
+export class Input extends Konva.Text {
   #container: HTMLDivElement
-  #input: HTMLInputElement
-  #rect: Konva.Rect
-  #text: Konva.Text
 
-  valueRef: Ref<string> | undefined
+  #backgroundColor: string
+  #borderColor: string
+  #blur: ((text: string) => void) | undefined
 
-  constructor(config: InputConfig, value?: Ref<string>) {
+  constructor(config: InputConfig) {
     super(config)
 
-    this.valueRef = value
-
     this.#container = document.createElement('div')
-    this.#input = document.createElement('input')
 
-    this.#rect = new Konva.Rect({
-      ...config,
-      x: 0,
-      y: 0,
-      width: this.width(),
-      height: this.height(),
-      draggable: false,
-    })
-    this.#text = new Konva.Text({
-      ...config,
-      text: value?.value || config.text || '',
-      x: 0,
-      y: 0,
-      width: this.width(),
-      height: this.height(),
-      fill: config.color || 'black',
-      draggable: false,
-    })
-
-    this.add(this.#rect)
-    this.add(this.#text)
+    this.#backgroundColor = config.backgroundColor || 'white'
+    this.#borderColor = config.borderColor || 'black'
+    this.#blur = config.blur
 
     this.on('click', this.#handleClick)
-
-    if (value) {
-      watch(value, (newValue) => {
-        this.#text.text(newValue)
-      })
-    }
 
     this.destroy = this.destroy.bind(this)
   }
@@ -100,36 +39,52 @@ export class Input extends Konva.Group {
     const container = stage.container()
     const { x, y } = this.absolutePosition()
 
-    this.#container.style.overflow = 'hidden'
-    this.#container.style.position = 'absolute'
-    this.#container.style.left = `${x}px`
-    this.#container.style.top = `${y}px`
-    this.#container.style.width = `${this.#rect.width()}px`
-    this.#container.style.height = `${this.#rect.height()}px`
-    this.#container.style.zIndex = `${this.getZIndex()}`
+    this.#container.className = 'lc-helpers-konva-edit'
+    this.#container.setAttribute('contenteditable', 'true')
+    this.#container.innerText = this.text()
 
-    this.#input.type = 'text'
-    this.#input.value = this.#text.text()
-    this.#input.style.boxSizing = 'border-box'
-    this.#input.style.width = `${this.#rect.width()}px`
-    this.#input.style.height = `${this.#rect.height()}px`
-    this.#input.style.fontFamily = this.#text.fontFamily()
-    this.#input.style.fontSize = `${this.#text.fontSize()}px`
-    this.#input.style.fontSize = `${this.#text.fontSize()}px`
+    Object.assign(this.#container.style, {
+      fontFamily: this.fontFamily(),
+      fontSize: `${this.fontSize()}px`,
+      lineHeight: this.lineHeight(),
+      color: this.fill(),
+      minWidth: `${this.width() + 10}px`,
+      padding: '5px',
+      backgroundColor: this.#backgroundColor,
+      border: `1px solid ${this.#borderColor}`,
+      borderRadius: '2px',
+      position: 'absolute',
+      left: `${x - 6}px`,
+      top: `${y - 6}px`,
+      zIndex: '2',
+    })
 
-    this.#input.addEventListener('blur', () => this.#updateText(this.#input))
+    this.#container.addEventListener('blur', this.#updateText)
+    this.#container.addEventListener('keydown', this.#preventEnter)
 
-    this.#container.appendChild(this.#input)
     container.appendChild(this.#container)
-    this.#input.focus()
+    this.#container.focus()
+
+    const range = document.createRange()
+    const selection = window.getSelection()
+    range.selectNodeContents(this.#container)
+    range.collapse(false)
+    selection?.removeAllRanges()
+    selection?.addRange(range)
   }
 
-  #updateText = (input: HTMLInputElement) => {
-    if (this.valueRef) {
-      this.valueRef.value = input.value
-    }
-    this.#text.text(input.value)
+  #updateText = () => {
+    const text = this.#container.innerText
+    this.text(text)
+    this.#blur?.(text)
+
     this.#container?.remove()
+  }
+
+  #preventEnter = (event: KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      event.preventDefault()
+    }
   }
 
   public destroy() {
