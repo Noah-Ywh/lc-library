@@ -83,3 +83,16 @@ export function useDateGetOffsetDate(date: string, offset: number): FormattedDat
     date: '',
   }
 }
+
+/**
+ * @Describe 计算两个日期之间的天数
+ * @param { string } startDate `'YYYY-MM-DD'`
+ * @param { string } endDate `'YYYY-MM-DD'`
+ */
+export function useDateCalculateDays(startDate: string, endDate: string) {
+  const start = new Date(startDate)
+  const end = new Date(endDate)
+  const diffTime = end.getTime() - start.getTime()
+  const diffDays = diffTime / (1000 * 60 * 60 * 24)
+  return diffDays
+}
