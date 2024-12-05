@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useDateGetNowYMD, useDateGetOffsetDate } from '@noahyu/lc-helpers'
+import { useDateGetNowYMD, useDateGetOffsetDate, useDateCalculateDays } from '@noahyu/lc-helpers'
 const { year, month, monthLabel, day, dayLabel, yearMonth, date } = useDateGetNowYMD()
 const offset = 2
 const {
@@ -11,12 +11,13 @@ const {
   yearMonth: yearMonthO,
   date: dateO,
 } = useDateGetOffsetDate(date, offset)
+const diffDays= useDateCalculateDays('2024-04-06', '2027-06-27')
 </script>
 
 # 日期
 
 ```ts
-import { useDateGetNowYMD, useDateGetOffsetDate } from '@noahyu/lc-helpers'
+import { useDateGetNowYMD, useDateGetOffsetDate, useDateCalculateDays } from '@noahyu/lc-helpers'
 ```
 
 ## 获取今日日期
@@ -56,3 +57,16 @@ day -> {{dayO}}
 dayLabel -> {{dayLabelO}}  
 yearMonth -> {{yearMonthO}}  
 date -> {{dateO}}
+
+## 计算两个日期之间的天数
+
+```ts
+/**
+ * @Describe 计算两个日期之间的天数
+ * @param { string } startDate `'YYYY-MM-DD'`
+ * @param { string } endDate `'YYYY-MM-DD'`
+ */
+const diffDays = useDateCalculateDays('2024-04-06', '2027-06-27')
+```
+
+diffDays: -> {{diffDays}}

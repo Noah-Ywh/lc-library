@@ -19,87 +19,39 @@ const input = new Input({
   x: 0,
   y: 0,
   width: 200,
-  height: 24,
-  text: '点击进入编辑模式',
+  text: '请输入...',
   fill: 'red',
-  fontSize: 18,
-  align: 'center',
+  fontSize: 14,
+  lineHeight: 1.4,
+  align: 'left',
   verticalAlign: 'middle',
   fontFamily: 'Calibri',
-  color: 'white',
   ellipsis: true,
   wrap: 'none',
-})
-```
-
-## 响应式内容
-
-提供一个 ref 对象
-
-```ts{1,17}
-const inputText = ref('点击进入编辑模式')
-const input = new Input(
-  {
-    x: 0,
-    y: 0,
-    width: 200,
-    height: 24,
-    fill: 'red',
-    fontSize: 18,
-    align: 'center',
-    verticalAlign: 'middle',
-    fontFamily: 'Calibri',
-    color: 'white',
-    ellipsis: true,
-    wrap: 'none',
+  backgroundColor: 'yellow',
+  borderColor: 'black',
+  blur(text) {
+    // 失焦后获取文本并计算文本宽度
+    const { width } = input.measureSize(text)
+    // 修改宽度
+    input.width(width)
   },
-  inputText,
-)
+})
 ```
 
 ## 类型声明
 
 ```ts
-type InputConfigGroup = Pick<
-  Konva.GroupConfig,
-  | 'x'
-  | 'y'
-  | 'width'
-  | 'height'
-  | 'visible'
-  | 'id'
-  | 'name'
-  | 'opacity'
-  | 'draggable'
-  | 'dragDistance'
-  | 'dragBoundFunc'
->
-
-type InputConfigRect = Pick<
-  Konva.RectConfig,
-  | 'cornerRadius'
-  | 'fill'
-  | 'stroke'
-  | 'strokeWidth'
-  | 'shadowColor'
-  | 'shadowBlur'
-  | 'shadowOffset'
-  | 'shadowOffsetX'
-  | 'shadowOffsetY'
-  | 'shadowOpacity'
-  | 'shadowEnabled'
->
-
-type InputConfigText = Pick<
-  Konva.TextConfig,
-  'fontFamily' | 'fontSize' | 'fontStyle' | 'text' | 'align' | 'verticalAlign' | 'ellipsis' | 'wrap'
-> & {
-  color?: string
+export type InputConfig = Konva.TextConfig & {
+  /** 输入框背景色 */
+  backgroundColor?: string
+  /** 输入框边框颜色 */
+  borderColor?: string
+  /** 失焦事件 */
+  blur?: (text: string) => void
 }
 
-export type InputConfig = InputConfigGroup & InputConfigRect & InputConfigText
-
-export declare class Input extends Konva.Group {
-  constructor(config: InputConfig, value?: Ref<string>)
+export declare class Input extends Konva.Text {
+  constructor(config: InputConfig)
 }
 ```
