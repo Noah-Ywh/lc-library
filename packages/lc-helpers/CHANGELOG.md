@@ -1,3 +1,18 @@
+# [1.7.0](https://github.com/Noah-Ywh/lc-library/compare/v1.6.11...v1.7.0) (2024-12-05)
+
+### ✨Features
+
+* **lc-helpers:** 计算两个日期之间的天数 ([4e8ddd9](https://github.com/Noah-Ywh/lc-library/commit/4e8ddd9a0a3cc8208a0ffefe2561a6605b80c952))
+
+### 🔨Code Refactoring
+
+* **lc-helpers:** 重构 Input 类 ([00621ac](https://github.com/Noah-Ywh/lc-library/commit/00621ace7a6743a194a1948a449b61989f2dbc62))
+
+### 🛠️Chore
+
+* update deps ([9145701](https://github.com/Noah-Ywh/lc-library/commit/9145701b02501b33313e4dd9f88da203212dbd5c))
+* update deps ([f632629](https://github.com/Noah-Ywh/lc-library/commit/f632629f212b245a2f0107c2344b7cf85018b551))
+
 ## [1.6.11](https://github.com/Noah-Ywh/lc-library/compare/v1.6.10...v1.6.11) (2024-10-19)
 
 ### 🐛Bug Fixes

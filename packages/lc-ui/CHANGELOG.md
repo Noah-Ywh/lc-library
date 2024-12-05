@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/Noah-Ywh/lc-library/compare/v1.6.11...v1.7.0) (2024-12-05)
+
+### 🛠️Chore
+
+* update deps ([9145701](https://github.com/Noah-Ywh/lc-library/commit/9145701b02501b33313e4dd9f88da203212dbd5c))
+* update deps ([f632629](https://github.com/Noah-Ywh/lc-library/commit/f632629f212b245a2f0107c2344b7cf85018b551))
+
 ## [1.6.8](https://github.com/Noah-Ywh/lc-library/compare/v1.6.7...v1.6.8) (2024-10-10)
 
 ### 🛠️Chore
