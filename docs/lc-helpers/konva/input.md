@@ -5,7 +5,7 @@ import { Input } from '@noahyu/lc-helpers/konva'
 ```
 
 ::: warning 环境
-不支持 SSR，如果你使用 Nuxt，请使用 `<ClientOnly></ClientOnly>` 包括组件或使用 `*.client.vue` 文件
+不支持 SSR，如果你使用 Nuxt，请使用 `<ClientOnly></ClientOnly>` 包裹组件或使用 `*.client.vue` 文件
 :::
 
 ::: tip 注意
@@ -30,14 +30,26 @@ const input = new Input({
   wrap: 'none',
   backgroundColor: 'yellow',
   borderColor: 'black',
+  input(text) {
+    // 输入内容时触发
+    console.log(text)
+  },
   blur(text) {
-    // 失焦后获取文本并计算文本宽度
-    const { width } = input.measureSize(text)
-    // 修改宽度
-    input.width(width)
+    // 输入框失去焦点时触发
+    console.log(text)
   },
 })
 ```
+
+## 缩放
+
+缩放舞台时需主动触发 `changeScale` 事件使输入框同步缩放
+
+```ts
+input.fire('changeScale')
+```
+
+这可能不是必须的，因为每次进入编辑都会计算输入框的位置以及缩放情况，只有在编辑状态下（焦点仍在输入框）触发缩放时才需要在缩放的同时触发该事件
 
 ## 类型声明
 
@@ -47,6 +59,8 @@ export type InputConfig = Konva.TextConfig & {
   backgroundColor?: string
   /** 输入框边框颜色 */
   borderColor?: string
+  /** 输入事件 */
+  input?: (text: string) => void
   /** 失焦事件 */
   blur?: (text: string) => void
 }
