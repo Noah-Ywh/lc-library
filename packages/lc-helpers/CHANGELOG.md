@@ -1,3 +1,9 @@
+## [1.7.1](https://github.com/Noah-Ywh/lc-library/compare/v1.7.0...v1.7.1) (2024-12-07)
+
+### 🐛Bug Fixes
+
+* **Konva Input:** 更好的输入效果 ([7ff1cb6](https://github.com/Noah-Ywh/lc-library/commit/7ff1cb6ebb0eec81a1630957661c714bcec8efc1))
+
 # [1.7.0](https://github.com/Noah-Ywh/lc-library/compare/v1.6.11...v1.7.0) (2024-12-05)
 
 ### ✨Features
