@@ -35,11 +35,36 @@ onMounted(() => {
 
     stage.add(layer)
 
+    const groupBox = new Konva.Group({
+      x: 400,
+      y: 25,
+      width: 400,
+    })
+    const rect = new Konva.Rect({
+      x: 0,
+      y: 0,
+      width: 400,
+      height: 60,
+      stroke: 'red',
+      strokeWidth: 1,
+    })
+
+    const label = new Konva.Text({
+      x: 0,
+      y: 0,
+      text: 'Hello：',
+      fontSize: 14,
+      fontFamily: 'Calibri',
+      fill: 'green',
+      padding: 5,
+    })
+
+    const width = Math.ceil(label.measureSize('输入框').width) + 10
     const input = new Input({
       name: 'input',
-      x: 0,
-      y: 25,
-      width: 200,
+      x: Math.ceil(label.width()),
+      y: 0,
+      width: width,
       text: '输入框',
       fill: 'red',
       fontSize: 14,
@@ -49,21 +74,49 @@ onMounted(() => {
       fontFamily: 'Calibri',
       ellipsis: true,
       wrap: 'none',
+      // styleType: 'outlined',
       backgroundColor: 'yellow',
       borderColor: 'black',
+      padding: 5,
+      focus() {
+        group.to({
+          x: 0,
+          duration: 0.2,
+        })
+        Object.assign(input.editEl.style, {
+          width: `${400 - Math.ceil(label.width())}px`,
+          left: `${Math.ceil(input.absolutePosition().x - group.x())}px`,
+          transition: 'width 0.2s, left 0.2s',
+        })
+      },
       input(text) {
-        // const { width } = input.measureSize(text)
-        // input.width(width)
-
         props.value.text = text
       },
       blur(text) {
-        // const { width } = input.measureSize(text)
-        // input.width(width)
-
+        input.width(Math.ceil(Math.min(input.measureSize(text).width + 10, 400 - label.width())))
+        group.to({
+          x: Math.ceil(groupBox.width() / 2 - (label.width() + input.width()) / 2),
+          duration: 0.2,
+          onFinish: () => {
+            console.log('Animation finished')
+            // 在动画结束时执行的代码
+          },
+          onUpdate: () => {
+            console.log('Animation updated')
+            // 在动画更新时执行的代码
+          },
+        })
         props.value.text = text
       },
     })
+
+    const group = new Konva.Group({
+      x: Math.ceil(groupBox.width() / 2 - (label.width() + input.width()) / 2),
+      y: 0,
+    })
+
+    group.add(label, input)
+    groupBox.add(rect, group)
 
     const slot = new Slot(
       {
@@ -79,7 +132,7 @@ onMounted(() => {
 
     slot.mount(TextEditVue, props.value)
 
-    layer.add(slot, input)
+    layer.add(slot, groupBox)
 
     layer.draw()
 
