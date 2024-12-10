@@ -30,12 +30,16 @@ const input = new Input({
   wrap: 'none',
   backgroundColor: 'yellow',
   borderColor: 'black',
+  focus(text) {
+    // 获得焦点时触发
+    console.log(text)
+  },
   input(text) {
     // 输入内容时触发
     console.log(text)
   },
   blur(text) {
-    // 输入框失去焦点时触发
+    // 失去焦点时触发
     console.log(text)
   },
 })
@@ -55,10 +59,13 @@ input.fire('changeScale')
 
 ```ts
 export type InputConfig = Konva.TextConfig & {
+  styleType?: 'outlined'
   /** 输入框背景色 */
   backgroundColor?: string
   /** 输入框边框颜色 */
   borderColor?: string
+  /** 焦点事件 */
+  focus?: (text: string) => void
   /** 输入事件 */
   input?: (text: string) => void
   /** 失焦事件 */
