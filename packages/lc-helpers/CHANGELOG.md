@@ -1,3 +1,9 @@
+## [1.7.2](https://github.com/Noah-Ywh/lc-library/compare/v1.7.1...v1.7.2) (2024-12-10)
+
+### 🐛Bug Fixes
+
+* **Konva Input:** 优化使用体验 ([33b0635](https://github.com/Noah-Ywh/lc-library/commit/33b06351f67e975141189240b48faadb2aae7bb7))
+
 ## [1.7.1](https://github.com/Noah-Ywh/lc-library/compare/v1.7.0...v1.7.1) (2024-12-07)
 
 ### 🐛Bug Fixes
