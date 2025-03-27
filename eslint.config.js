@@ -19,6 +19,7 @@ export default [
   {
     rules: {
       quotes: ['error', 'single', { avoidEscape: true }],
+      curly: ['error', 'multi-line'],
     },
   },
 ]
